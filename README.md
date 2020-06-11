@@ -1,2 +1,2 @@
 # Project-Travel-Blog-React
-A travel blog mage with React
+A travel blog made with React
