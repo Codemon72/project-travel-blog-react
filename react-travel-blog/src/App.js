@@ -8,8 +8,10 @@ function App() {
 	return (
 		<div className="App">
 			<Header />
+			<div className="flex flex-row">
 			<Bloglist />
 			<Map />
+			</div>
 		</div>
 	);
 }
