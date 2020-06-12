@@ -1,12 +1,11 @@
 import React from "react";
 import contactLogo from "../../assets/img/contact-bubble.png";
-import "../../assets/main.css";
 
 const Menu = () => {
 	return (
 		<nav className="px-8 h-32 w-full flex flex-row justify-between items-center text-center bg-teal-900 shadow-xl">
 			<div className="flex flex-row items-center">
-				<a href="#">
+				<a href="/">
 					<div className="flex items-center flex-shrink-0 text-white mr-6">
 						<svg
 							className="fill-current h-8 w-8 mr-2"
@@ -23,7 +22,7 @@ const Menu = () => {
 					</div>
 				</a>
 
-				<a href="#" className="hidden md:block">
+				<a href="/contact" className="hidden md:block">
 					<img
 						src={contactLogo}
 						alt="Picture of a speech bubble with `Contact me`inside"
