@@ -9,9 +9,8 @@ db.collection("blogPosts")
 	.get()
 	.then((posts) => {
 		posts.forEach((post) => {
-			const json = post.data();
-
-		
+      const json = post.data();
+      console.log(json);
 			});
 		});
 
