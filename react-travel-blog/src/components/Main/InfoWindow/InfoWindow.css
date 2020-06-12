@@ -1,5 +1,7 @@
 .infoWindow {
+  font-size: 16px;
+  width: 200px;
   background: none #fff;
   display: inline-block;
-  padding: 2em;
+  padding: 1em;
 }

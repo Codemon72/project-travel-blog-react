@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import GoogleMapReact from "google-map-react";
-import Marker from "./Marker/Marker.js";
-import InfoWindow from "./InfoWindow/InfoWindow.js";
+import Marker from "../Marker/Marker.js";
+import InfoWindow from "../InfoWindow/InfoWindow.js";
 import randomPlaces from "../../../Places.js";
 
 const Map = () => {
