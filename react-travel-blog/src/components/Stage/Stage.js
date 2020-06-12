@@ -1,7 +1,7 @@
 import React from "react";
 import headerLogo from "../../assets/img/welt.png";
 
-const Header = () => {
+const Stage = () => {
 	return (
 		<header>
 			<div className="flex bg-teal-600">
@@ -15,7 +15,7 @@ const Header = () => {
 				</div>
 				<div className="lg:w-1/2 py-8 px-12 lg:px-0 lg:pr-12">
 					<h2 className="pb-8 text-white font-semibold text-2xl md:text-3xl lg:text-4xl tracking-tight">
-						Moin and welcome to Travel Time, my travel blog around the world!
+						Moin and welcome to Travel Time, our travel blog around the world!
 					</h2>
 					<div
 						id="header-text"
@@ -34,4 +34,4 @@ const Header = () => {
 	);
 };
 
-export default Header;
+export default Stage;

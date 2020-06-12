@@ -2,7 +2,7 @@ import React from "react";
 import "./assets/main.css";
 import Menu from "./components/Menu/Menu";
 import Main from "./components/Main/Main.js";
-import Header from "./components/Header/Header";
+import Stage from "./components/Stage/Stage";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -14,7 +14,7 @@ function App() {
 			<div className="App">
 				<Menu />
 				<Route path="/" exact>
-					<Header />
+					<Stage />
 					<Main />
 				</Route>
 				<Route path="/contact" component={Contact} />

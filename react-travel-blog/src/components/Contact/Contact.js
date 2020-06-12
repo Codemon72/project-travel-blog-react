@@ -22,12 +22,12 @@ const Contact = () => {
 						id="header-text"
 						className="px-2 pt-1 lg:px-0 lg:pt-0 lg:pb-8 text-white text-2xl lg:text-3xl tracking-tight"
 					>
-						... Clemens and Christoph. We are developer in the making based in
+						... Clemens and Christoph. We are developers in the making based in
 						Hamburg. One of our passions, besides Frontend Development, is to
 						discover new places and landscapes, to get to know other cultures or
 						just to think outside the box. We are two of the participants of the
 						<span className="hover:text-black">
-							<a href="https://hamburgcodingschool.com/">
+							<a href="https://hamburgcodingschool.com/" target="_blank">
 								Hamburg Coding School
 							</a>
 						</span>
@@ -40,9 +40,9 @@ const Contact = () => {
 						<div className="flex">
 							<div className="w-1/2">
 								Clemens Bruesch <br />
-								Neue Straße 1, 22765 Hamburg <br />
-								clemens.bruesch@web.de <br />
-								0178 / 223567643 <br />
+								Wetteringe 6, 21029 Hamburg <br />
+								clemens.bruesch@gmail.com <br />
+								0151 / 20294061 <br />
 							</div>
 							<div className="w-1/2">
 								Christoph Pöllmann <br />

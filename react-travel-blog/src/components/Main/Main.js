@@ -4,7 +4,7 @@ import Map from "./Map/Map";
 
 const Main = () => {
 	return (
-		<div className="flex flex-row">
+		<div className="flex flex-col-reverse lg:flex-row">
 			<Bloglist />
 			<Map />
 		</div>
