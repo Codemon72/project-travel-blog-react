@@ -35,7 +35,7 @@ const Map = () => {
   };
 
   return (
-    <div className="lg:w-1/2" style={{ height: "100vh" }}>
+    <div className="w-full lg:w-1/2 " style={{ height: "100vh" }}>
       <GoogleMapReact
         distanceToMouse={()=>{}}
         bootstrapURLKeys={keyConfig}
