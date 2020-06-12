@@ -1,23 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import GoogleMapReact from "google-map-react";
 import Marker from "../Marker/Marker.js";
 import InfoWindow from "../InfoWindow/InfoWindow.js";
-import randomPlaces from "../../../Places.js";
+// import randomPlaces from "../../../Places.js";
 import db from "../../../Firebase.js";
-
-db.collection("blogPosts")
-	.get()
-	.then((posts) => {
-		posts.forEach((post) => {
-      const json = post.data();
-      console.log(json);
-			});
-		});
 
 
 const Map = () => {
   const keyConfig = { key: "" };
+  const places = []
+  // const [places, setPlaces] = useState([]);
   const [selected, setSelected] = useState(null);
+
+  useEffect(() => {
+    db.collection("blogPosts")
+      .get()
+      .then((posts) => {
+        posts.forEach((post) => {
+          const json = post.data();
+          places.push(json);
+          // setPlaces(...places, json)
+          console.log(places);
+          });
+        });
+  }, []);
+
+
   const handleShowInfo = (blog) => {
     setSelected(blog);
   };
@@ -42,13 +50,13 @@ const Map = () => {
         defaultCenter={defaultMapSettings.center}
         defaultZoom={defaultMapSettings.zoom}
       >
-				
-        {randomPlaces.map((place) => {
+
+        {places.map((place) => {
           return (
             <Marker
-              key={place.id}
-              lat={place.lat}
-              lng={place.lng}
+              key={place.title}
+              lat={place.geo_data.lat}
+              lng={place.geo_data.lng}
               showInfo={() => handleShowInfo(place)}
             />
           );
