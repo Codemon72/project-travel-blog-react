@@ -3,6 +3,18 @@ import GoogleMapReact from "google-map-react";
 import Marker from "../Marker/Marker.js";
 import InfoWindow from "../InfoWindow/InfoWindow.js";
 import randomPlaces from "../../../Places.js";
+import db from "../../../Firebase.js";
+
+db.collection("blogPosts")
+	.get()
+	.then((posts) => {
+		posts.forEach((post) => {
+			const json = post.data();
+
+		
+			});
+		});
+
 
 const Map = () => {
   const keyConfig = { key: "" };
@@ -26,6 +38,7 @@ const Map = () => {
   return (
     <div className="lg:w-1/2" style={{ height: "100vh" }}>
       <GoogleMapReact
+        distanceToMouse={()=>{}}
         bootstrapURLKeys={keyConfig}
         defaultCenter={defaultMapSettings.center}
         defaultZoom={defaultMapSettings.zoom}

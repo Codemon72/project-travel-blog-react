@@ -7,7 +7,7 @@ const Header = () => {
 		<nav className="px-8 mb-20 h-32 w-full flex flex-row justify-between items-center text-center bg-teal-800">
 			<div className="flex flex-row items-center">
 				<a href="#">
-					<div class="flex items-center flex-shrink-0 text-white mr-6">
+					<div className="flex items-center flex-shrink-0 text-white mr-6">
 						<svg
 							className="fill-current h-8 w-8 mr-2"
 							width="54"
