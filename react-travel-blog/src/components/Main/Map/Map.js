@@ -9,63 +9,63 @@ db.collection("blogPosts")
 	.get()
 	.then((posts) => {
 		posts.forEach((post) => {
-      const json = post.data();
-      console.log(json);
-			});
+			const json = post.data();
+			console.log(json);
 		});
-
+	});
 
 const Map = () => {
-  const keyConfig = { key: "" };
-  const [selected, setSelected] = useState(null);
-  const handleShowInfo = (blog) => {
-    setSelected(blog);
-  };
+	const keyConfig = { key: "" };
+	const [selected, setSelected] = useState(null);
+	const handleShowInfo = (blog) => {
+		setSelected(blog);
+	};
 
-  const handleCloseInfo = (event) => {
-    setSelected(null);
-  };
+	const handleCloseInfo = (event) => {
+		setSelected(null);
+	};
 
-  const defaultMapSettings = {
-    center: {
-      lat: 48.13743,
-      lng: 11.57549,
-    },
-    zoom: 4,
-  };
+	const defaultMapSettings = {
+		center: {
+			lat: 48.13743,
+			lng: 11.57549,
+		},
+		zoom: 4,
+	};
 
-  return (
-    <div className="w-full lg:w-1/2 " style={{ height: "100vh" }}>
-      <GoogleMapReact
-        distanceToMouse={()=>{}}
-        bootstrapURLKeys={keyConfig}
-        defaultCenter={defaultMapSettings.center}
-        defaultZoom={defaultMapSettings.zoom}
-      >
-				
-        {randomPlaces.map((place) => {
-          return (
-            <Marker
-              key={place.id}
-              lat={place.lat}
-              lng={place.lng}
-              showInfo={() => handleShowInfo(place)}
-            />
-          );
-        })}
+	return (
+		<div
+			className="w-full lg:w-1/2 border-4 rounded-md"
+			style={{ height: "100vh" }}
+		>
+			<GoogleMapReact
+				distanceToMouse={() => {}}
+				bootstrapURLKeys={keyConfig}
+				defaultCenter={defaultMapSettings.center}
+				defaultZoom={defaultMapSettings.zoom}
+			>
+				{randomPlaces.map((place) => {
+					return (
+						<Marker
+							key={place.id}
+							lat={place.lat}
+							lng={place.lng}
+							showInfo={() => handleShowInfo(place)}
+						/>
+					);
+				})}
 
-        {selected && (
-          <InfoWindow
-            lat={selected.lat}
-            lng={selected.lng}
-            blog={selected.blog}
-            closeInfo={handleCloseInfo}
-          />
-        )}
-
-      </GoogleMapReact>
-    </div>
-  );
+				{selected && (
+					<InfoWindow
+						lat={selected.lat}
+						lng={selected.lng}
+						blog={selected.blog}
+						closeInfo={handleCloseInfo}
+					/>
+				)}
+			</GoogleMapReact>
+		</div>
+	);
 };
 
 export default Map;
