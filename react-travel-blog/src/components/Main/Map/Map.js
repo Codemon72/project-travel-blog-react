@@ -69,8 +69,8 @@ const Map = () => {
 
 				{selected && (
 					<InfoWindow
-						lat={selected.lat}
-						lng={selected.lng}
+						lat={selected.geo_data.lat}
+						lng={selected.geo_data.lng}
 						place={selected}
 						closeInfo={handleCloseInfo}
 					/>

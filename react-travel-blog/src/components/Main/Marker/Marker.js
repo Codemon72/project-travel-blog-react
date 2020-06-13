@@ -1,10 +1,11 @@
 import React from "react";
+import marker from "../../../assets/img/marker.svg";
 import "./Marker.css";
 
 const Marker = props => {
   return (
     <img
-      src="https://img.icons8.com/ios-filled/50/000000/marker.png"
+      src={marker}
       alt=""
       className="marker"
       onClick={props.showInfo}

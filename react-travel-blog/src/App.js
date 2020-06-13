@@ -14,7 +14,7 @@ function App() {
 			<div className="App">
 				<Menu />
 				<Route path="/" exact>
-					<Stage />
+					{/* <Stage /> */}
 					<Main />
 				</Route>
 				<Route path="/contact" component={Contact} />

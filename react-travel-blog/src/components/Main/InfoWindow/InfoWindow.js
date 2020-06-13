@@ -3,7 +3,6 @@ import "./InfoWindow.css";
 
 
 const InfoWindow = ({ place, closeInfo }) => {
-  // console.log('blog: ' + place);
   return (
     <div className="infoWindow">
       Title: {place.title}

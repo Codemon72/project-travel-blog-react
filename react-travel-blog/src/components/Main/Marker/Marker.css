@@ -1,5 +1,6 @@
 .marker {
   position: absolute;
-  left: -32px;
-  top: -64px;
+  width: 42px;
+  left: -22px;
+  top: -42px;
 }
