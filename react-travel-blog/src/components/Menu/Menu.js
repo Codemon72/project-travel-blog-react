@@ -1,11 +1,12 @@
 import React from "react";
 import contactLogo from "../../assets/img/contact-bubble.png";
+import { Link } from "react-router-dom";
 
 const Menu = () => {
 	return (
 		<nav className="px-8 h-32 w-full flex flex-row justify-between items-center text-center bg-teal-900 shadow-xl">
 			<div className="flex flex-row items-center">
-				<a href="/">
+				<Link to="/">
 					<div className="flex items-center flex-shrink-0 text-white mr-6">
 						<svg
 							className="fill-current h-8 w-8 mr-2"
@@ -20,16 +21,15 @@ const Menu = () => {
 							Travel Time
 						</span>
 					</div>
-				</a>
-
-				<a href="/contact" className="hidden md:block">
+				</Link>
+				<Link to="/contact" className="hidden md:block">
 					<img
 						src={contactLogo}
 						alt="Picture of a speech bubble with `Contact me`inside"
 						className="w-16 h-16"
 						title="Contact"
 					/>
-				</a>
+				</Link>
 			</div>
 
 			<div>

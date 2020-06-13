@@ -67,18 +67,18 @@ const Map = () => {
           );
         })}
 
-        {selected && (
-          <InfoWindow
-            lat={selected.lat}
-            lng={selected.lng}
-            blog={selected.blog}
-            closeInfo={handleCloseInfo}
-          />
-        )}
+				{selected && (
+					<InfoWindow
+						lat={selected.lat}
+						lng={selected.lng}
+						blog={selected.blog}
+						closeInfo={handleCloseInfo}
+					/>
+				)}
 
-      </GoogleMapReact>
-    </div>
-  );
+			</GoogleMapReact>
+		</div>
+	);
 };
 
 export default Map;
