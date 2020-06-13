@@ -1,59 +1,71 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import GoogleMapReact from "google-map-react";
 import Marker from "../Marker/Marker.js";
 import InfoWindow from "../InfoWindow/InfoWindow.js";
-import randomPlaces from "../../../Places.js";
 import db from "../../../Firebase.js";
 
-db.collection("blogPosts")
-	.get()
-	.then((posts) => {
-		posts.forEach((post) => {
-			const json = post.data();
-			console.log(json);
-		});
-	});
 
 const Map = () => {
-	const keyConfig = { key: "" };
-	const [selected, setSelected] = useState(null);
-	const handleShowInfo = (blog) => {
-		setSelected(blog);
-	};
+  const keyConfig = { key: "" };
+  const defaultMapSettings = {
+    center: {
+      lat: 48.13743,
+      lng: 11.57549,
+    },
+    zoom: 3,
+  };
+  const placesfromDB = [];
+  const [places, setPlaces] = useState([]);
+  const [selected, setSelected] = useState(null);
 
-	const handleCloseInfo = (event) => {
-		setSelected(null);
-	};
+  useEffect(() => {
+    db.collection("blogPosts")
+      .get()
+      .then((posts) => {
+        posts.forEach((post) => {
+          const json = post.data();
+          placesfromDB.push(json);
+          });
+        })
+      .then( () => setPlaces(placesfromDB) )
+  }, []);
 
-	const defaultMapSettings = {
-		center: {
-			lat: 48.13743,
-			lng: 11.57549,
-		},
-		zoom: 4,
-	};
 
-	return (
-		<div
-			className="w-full lg:w-1/2 border-4 rounded-md"
-			style={{ height: "100vh" }}
-		>
-			<GoogleMapReact
-				distanceToMouse={() => {}}
-				bootstrapURLKeys={keyConfig}
-				defaultCenter={defaultMapSettings.center}
-				defaultZoom={defaultMapSettings.zoom}
-			>
-				{randomPlaces.map((place) => {
-					return (
-						<Marker
-							key={place.id}
-							lat={place.lat}
-							lng={place.lng}
-							showInfo={() => handleShowInfo(place)}
-						/>
-					);
-				})}
+  // useEffect(() => {
+  //   // setPlaces(placesfromDB)
+  //   console.log(places)
+  // }, [places])
+
+  const handleShowInfo = (blog) => {
+    setSelected(blog);
+  };
+
+  const handleCloseInfo = (event) => {
+    setSelected(null);
+  };
+
+  
+
+  return (
+    <div className="w-full lg:w-1/2 " style={{ height: "100vh" }}>
+
+      <GoogleMapReact
+        distanceToMouse={()=>{}}
+        bootstrapURLKeys={keyConfig}
+        defaultCenter={defaultMapSettings.center}
+        defaultZoom={defaultMapSettings.zoom}
+      >
+        {places.map((place) => {
+          console.log(place)
+          return (
+            <Marker
+              key={place.title}
+              lat={place.geo_data.lat}
+              lng={place.geo_data.lng}
+              showInfo={() => handleShowInfo(place)}
+            />
+          );
+        })}
 
 				{selected && (
 					<InfoWindow
@@ -63,6 +75,7 @@ const Map = () => {
 						closeInfo={handleCloseInfo}
 					/>
 				)}
+
 			</GoogleMapReact>
 		</div>
 	);
