@@ -2,14 +2,15 @@ import React from "react";
 import "./InfoWindow.css";
 
 
-const InfoWindow = ({ blog, closeInfo }) => {
+const InfoWindow = ({ place, closeInfo }) => {
+  // console.log('blog: ' + place);
   return (
     <div className="infoWindow">
-      Title: {blog.title}
+      Title: {place.title}
       <hr />
       Visiting Date: .....
       <hr />
-      Authors Image and Name (can be hardcoded): ({blog.author})
+      Authors Image and Name (can be hardcoded): ({place.author})
       <hr />
       Link to detail page: /post/:id 
       <hr />

@@ -36,8 +36,9 @@ const Map = () => {
   //   console.log(places)
   // }, [places])
 
-  const handleShowInfo = (blog) => {
-    setSelected(blog);
+  const handleShowInfo = (place) => {
+    console.log(place);
+    setSelected(place);
   };
 
   const handleCloseInfo = (event) => {
@@ -56,7 +57,6 @@ const Map = () => {
         defaultZoom={defaultMapSettings.zoom}
       >
         {places.map((place) => {
-          console.log(place)
           return (
             <Marker
               key={place.title}
@@ -71,7 +71,7 @@ const Map = () => {
 					<InfoWindow
 						lat={selected.lat}
 						lng={selected.lng}
-						blog={selected.blog}
+						place={selected}
 						closeInfo={handleCloseInfo}
 					/>
 				)}
