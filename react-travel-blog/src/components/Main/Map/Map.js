@@ -7,16 +7,22 @@ import db from "../../../Firebase.js";
 
 const Map = () => {
   const keyConfig = { key: "" };
-  const defaultMapSettings = {
-    center: {
-      lat: 48.13743,
-      lng: 11.57549,
-    },
-    zoom: 3,
-  };
   const placesfromDB = [];
   const [places, setPlaces] = useState([]);
+ 
   const [selected, setSelected] = useState(null);
+
+  const initialMapSettings = {
+    center: {
+      lat: places.length > 0 ? places[0].geo_data.lat : 37.794594,
+      lng: places.length > 0 ? places[0].geo_data.lng : -25.506134
+      // lat: 37.794594,
+      // lng: -25.506134
+    },
+    zoom: 4,
+  };
+  // const [mapSettings, setMapSettings] = useState(initialMapSettings);
+
 
   useEffect(() => {
     db.collection("blogPosts")
@@ -27,17 +33,27 @@ const Map = () => {
           placesfromDB.push(json);
           });
         })
-      .then( () => setPlaces(placesfromDB) )
+      .then( () => {
+        sortPlacesByDate(placesfromDB);
+        setPlaces(placesfromDB);
+        // setMapSettings({...mapSettings, center: placesfromDB[0].geo_data});
+      })
+      .catch(err => {
+        console.log('Error getting document', err);
+      });
   }, []);
 
-
-  // useEffect(() => {
-  //   // setPlaces(placesfromDB)
-  //   console.log(places)
-  // }, [places])
+  
+  const sortPlacesByDate = (array) => {
+    array.sort((a,b) => {
+      return b.date.seconds - a.date.seconds;
+    });
+  }
 
   const handleShowInfoWindow = (place) => {
     setSelected(place);
+    // setMapSettings({...mapSettings, center: place.geo_data, zoom: 7}); 
+    // console.log(place.geo_data )
   };
 
   const handleCloseInfoWindow = (event) => {
@@ -51,8 +67,8 @@ const Map = () => {
       <GoogleMapReact
         distanceToMouse={()=>{}}
         bootstrapURLKeys={keyConfig}
-        defaultCenter={defaultMapSettings.center}
-        defaultZoom={defaultMapSettings.zoom}
+        center={initialMapSettings.center}
+        zoom={initialMapSettings.zoom}
       >
         
         {places.map((place) => {
