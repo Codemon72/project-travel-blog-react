@@ -147,7 +147,6 @@ You can choose any of these optional bonus tasks, in any order.
 - [ ] On the Blog Post Detail page, place a the map on the right side next to the blog post.
 - [ ] The map shows centered the location of the blog post.
 
-
 ### Bonus 2: Firebase Storage for images
 
 - [ ] Include the Storage API from Firebase.

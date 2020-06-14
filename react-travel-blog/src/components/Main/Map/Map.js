@@ -36,11 +36,11 @@ const Map = () => {
   //   console.log(places)
   // }, [places])
 
-  const handleShowInfo = (place) => {
+  const handleShowInfoWindow = (place) => {
     setSelected(place);
   };
 
-  const handleCloseInfo = (event) => {
+  const handleCloseInfoWindow = (event) => {
     setSelected(null);
   };
 
@@ -62,7 +62,7 @@ const Map = () => {
               lat={place.geo_data.lat}
               lng={place.geo_data.lng}
               place={place}
-              showInfo={() => handleShowInfo(place)}
+              showInfo={() => handleShowInfoWindow(place)}
             />
           );
         })}
@@ -72,7 +72,7 @@ const Map = () => {
 						lat={selected.geo_data.lat}
 						lng={selected.geo_data.lng}
 						place={selected}
-						closeInfo={handleCloseInfo}
+						closeInfo={handleCloseInfoWindow}
 					/>
 				)}
 
