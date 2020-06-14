@@ -9,10 +9,12 @@ const Map = () => {
   const keyConfig = { key: "" };
   const defaultMapSettings = {
     center: {
+      // lat: places.length > 0 ? places[0].geo_data.lat : 16.77348,
+      // lng: places.length > 0 ? places[0].geo_data.lng : -3.00742,
       lat: 48.13743,
       lng: 11.57549,
     },
-    zoom: 3,
+    zoom: 6,
   };
   const placesfromDB = [];
   const [places, setPlaces] = useState([]);
@@ -27,14 +29,28 @@ const Map = () => {
           placesfromDB.push(json);
           });
         })
+      .then( () => console.log(placesfromDB))
+      .then( () => sortPlacesByDate(placesfromDB) )
+      .then( () => console.log(placesfromDB))
       .then( () => setPlaces(placesfromDB) )
   }, []);
 
 
-  // useEffect(() => {
-  //   // setPlaces(placesfromDB)
-  //   console.log(places)
-  // }, [places])
+  useEffect(() => {
+    if (places.length > 0){
+      console.log('Blubber!')
+      // defaultMapSettings.center.lat = places[0].geo_data.lat;
+      // defaultMapSettings.center.lat = places[0].geo_data.lat;
+      defaultMapSettings.center.lat = 16.77348;
+      defaultMapSettings.center.lng = -3.00742;
+    }
+  }, [places])
+  
+  const sortPlacesByDate = (array) => {
+    array.sort((a,b) => {
+      return a.date.seconds - b.date.seconds;
+    });
+  }
 
   const handleShowInfoWindow = (place) => {
     setSelected(place);
