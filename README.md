@@ -41,7 +41,7 @@ The dashboard shows an overview of the all blog posts and a Google Map.
 
 - [x] Use the [google-map-react](https://github.com/google-map-react/google-map-react) library to display a world map.
 - [x] For each blog post, put a marker on the map at the location of the post.
-- [ ] Initially the map gets centered by the newest blog post entry.
+- [x] Initially the map gets centered by the newest blog post entry.
 
 #### Display Blog Posts at Location
 

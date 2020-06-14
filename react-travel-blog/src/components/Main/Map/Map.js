@@ -7,18 +7,22 @@ import db from "../../../Firebase.js";
 
 const Map = () => {
   const keyConfig = { key: "" };
-  const defaultMapSettings = {
-    center: {
-      // lat: places.length > 0 ? places[0].geo_data.lat : 16.77348,
-      // lng: places.length > 0 ? places[0].geo_data.lng : -3.00742,
-      lat: 48.13743,
-      lng: 11.57549,
-    },
-    zoom: 6,
-  };
   const placesfromDB = [];
   const [places, setPlaces] = useState([]);
+ 
   const [selected, setSelected] = useState(null);
+
+  const initialMapSettings = {
+    center: {
+      lat: places.length > 0 ? places[0].geo_data.lat : 16.77348,
+      lng: places.length > 0 ? places[0].geo_data.lng : -3.00742
+      // lat: 48.13743,
+      // lng: 11.57549
+    },
+    zoom: 4,
+  };
+  // const [center, setCenter] = useState(initialMapSettings.center);
+
 
   useEffect(() => {
     db.collection("blogPosts")
@@ -29,26 +33,22 @@ const Map = () => {
           placesfromDB.push(json);
           });
         })
-      .then( () => console.log(placesfromDB))
-      .then( () => sortPlacesByDate(placesfromDB) )
-      .then( () => console.log(placesfromDB))
-      .then( () => setPlaces(placesfromDB) )
+      .then( () => {
+        sortPlacesByDate(placesfromDB);
+        setPlaces(placesfromDB);
+        console.log(placesfromDB[0].geo_data);
+        console.log(initialMapSettings.center);
+        // setCenter(placesfromDB[0].geo_data);
+      })
+      .catch(err => {
+        console.log('Error getting document', err);
+      });
   }, []);
 
-
-  useEffect(() => {
-    if (places.length > 0){
-      console.log('Blubber!')
-      // defaultMapSettings.center.lat = places[0].geo_data.lat;
-      // defaultMapSettings.center.lat = places[0].geo_data.lat;
-      defaultMapSettings.center.lat = 16.77348;
-      defaultMapSettings.center.lng = -3.00742;
-    }
-  }, [places])
   
   const sortPlacesByDate = (array) => {
     array.sort((a,b) => {
-      return a.date.seconds - b.date.seconds;
+      return b.date.seconds - a.date.seconds;
     });
   }
 
@@ -67,8 +67,8 @@ const Map = () => {
       <GoogleMapReact
         distanceToMouse={()=>{}}
         bootstrapURLKeys={keyConfig}
-        defaultCenter={defaultMapSettings.center}
-        defaultZoom={defaultMapSettings.zoom}
+        center={initialMapSettings.center}
+        zoom={initialMapSettings.zoom}
       >
         
         {places.map((place) => {
