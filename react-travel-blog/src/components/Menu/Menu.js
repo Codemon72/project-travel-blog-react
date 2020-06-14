@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import contactLogo from "../../assets/img/contact-bubble.png";
+
 import { Link } from "react-router-dom";
+import Login from "./Login";
 
 const Menu = () => {
+	const [showLogin, setShowLogin] = useState(false);
+
+	const showLoginForm = () => {
+		setShowLogin(!showLogin);
+	};
+
 	return (
-		<nav className="px-8 h-32 w-full flex flex-row justify-between items-center text-center bg-teal-900 shadow-xl">
+		<nav className="relative px-8 h-32 w-full flex flex-row justify-between items-center text-center bg-teal-900 shadow-xl">
 			<div className="flex flex-row items-center">
 				<Link to="/">
 					<div className="flex items-center flex-shrink-0 text-white mr-6">
@@ -31,15 +39,13 @@ const Menu = () => {
 					/>
 				</Link>
 			</div>
-
-			<div>
-				<a
-					href="#"
-					className="inline-block text-sm px-4 lg:mr-2 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white"
-				>
-					Login
-				</a>
+			<div
+				onClick={showLoginForm}
+				className="cursor-pointer inline-block text-sm px-4 lg:mr-2 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-600 hover:bg-white"
+			>
+				<p>Login</p>
 			</div>
+			{showLogin && <Login />}
 		</nav>
 	);
 };
