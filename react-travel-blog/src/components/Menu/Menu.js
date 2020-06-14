@@ -25,7 +25,7 @@ const Menu = () => {
 				<Link to="/contact" className="hidden md:block">
 					<img
 						src={contactLogo}
-						alt="Picture of a speech bubble with `Contact me`inside"
+						alt=""
 						className="w-16 h-16"
 						title="Contact"
 					/>
@@ -33,12 +33,12 @@ const Menu = () => {
 			</div>
 
 			<div>
-				<a
+				{/* <a
 					href="#"
 					className="inline-block text-sm px-4 lg:mr-2 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white"
 				>
 					Login
-				</a>
+				</a> */}
 			</div>
 		</nav>
 	);

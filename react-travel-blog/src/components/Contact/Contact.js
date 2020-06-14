@@ -27,7 +27,7 @@ const Contact = () => {
 						discover new places and landscapes, to get to know other cultures or
 						just to think outside the box. We are two of the participants of the
 						<span className="hover:text-black">
-							<a href="https://hamburgcodingschool.com/" target="_blank">
+							<a href="https://hamburgcodingschool.com/" target="_blank" rel="noopener noreferrer">
 								Hamburg Coding School
 							</a>
 						</span>

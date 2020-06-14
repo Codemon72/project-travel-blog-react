@@ -37,7 +37,6 @@ const Map = () => {
   // }, [places])
 
   const handleShowInfo = (place) => {
-    console.log(place);
     setSelected(place);
   };
 
@@ -46,7 +45,6 @@ const Map = () => {
   };
 
   
-
   return (
     <div className="w-full lg:w-1/2 " style={{ height: "100vh" }}>
 
@@ -56,12 +54,14 @@ const Map = () => {
         defaultCenter={defaultMapSettings.center}
         defaultZoom={defaultMapSettings.zoom}
       >
+        
         {places.map((place) => {
           return (
             <Marker
               key={place.title}
               lat={place.geo_data.lat}
               lng={place.geo_data.lng}
+              place={place}
               showInfo={() => handleShowInfo(place)}
             />
           );
