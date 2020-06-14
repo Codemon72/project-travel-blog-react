@@ -14,14 +14,14 @@ const Map = () => {
 
   const initialMapSettings = {
     center: {
-      lat: places.length > 0 ? places[0].geo_data.lat : 16.77348,
-      lng: places.length > 0 ? places[0].geo_data.lng : -3.00742
-      // lat: 48.13743,
-      // lng: 11.57549
+      lat: places.length > 0 ? places[0].geo_data.lat : 37.794594,
+      lng: places.length > 0 ? places[0].geo_data.lng : -25.506134
+      // lat: 37.794594,
+      // lng: -25.506134
     },
     zoom: 4,
   };
-  // const [center, setCenter] = useState(initialMapSettings.center);
+  // const [mapSettings, setMapSettings] = useState(initialMapSettings);
 
 
   useEffect(() => {
@@ -36,9 +36,7 @@ const Map = () => {
       .then( () => {
         sortPlacesByDate(placesfromDB);
         setPlaces(placesfromDB);
-        console.log(placesfromDB[0].geo_data);
-        console.log(initialMapSettings.center);
-        // setCenter(placesfromDB[0].geo_data);
+        // setMapSettings({...mapSettings, center: placesfromDB[0].geo_data});
       })
       .catch(err => {
         console.log('Error getting document', err);
@@ -54,6 +52,8 @@ const Map = () => {
 
   const handleShowInfoWindow = (place) => {
     setSelected(place);
+    // setMapSettings({...mapSettings, center: place.geo_data, zoom: 7}); 
+    // console.log(place.geo_data )
   };
 
   const handleCloseInfoWindow = (event) => {
