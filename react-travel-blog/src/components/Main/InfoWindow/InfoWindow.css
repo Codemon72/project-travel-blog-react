@@ -1,7 +1,23 @@
 .infoWindow {
   font-size: 16px;
-  width: 200px;
+  width: 250px;
   background: none #fff;
   display: inline-block;
   padding: 1em;
+  position: absolute;
+  border-radius: 10px;
+  border-top-left-radius: 0;
+  box-shadow: 0 10px 20px rgba(112, 112, 112, 0.19);
+  z-index: 3;
+  /* left: -100px;
+  top: -220px; */
+}
+
+.toggle-x {
+  height: 18px;
+  width: 18px;
+  background: url("./../../../assets/img/x.svg") no-repeat right;
+}
+.toggle-x:hover {
+  background: url("./../../../assets/img/plus.svg") no-repeat right;
 }

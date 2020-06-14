@@ -2,20 +2,17 @@ import React from "react";
 import "./InfoWindow.css";
 
 
-const InfoWindow = ({ blog, closeInfo }) => {
+const InfoWindow = ({ place, closeInfo }) => {
   return (
-    <div className="infoWindow">
-      Title: {blog.title}
-      <hr />
-      Visiting Date: .....
-      <hr />
-      Authors Image and Name (can be hardcoded): ({blog.author})
-      <hr />
-      Link to detail page: /post/:id 
-      <hr />
-      <button type="button" onClick={closeInfo}>
-        Close X
-      </button>
+    <div className="infoWindow flex flex-col cursor-default">
+      <div className="flex justify-between">
+        <h3 className="text-lg underline inline-block">{place.title}</h3>
+        <div className="inline-block self-start cursor-pointer toggle-x"
+        onClick={closeInfo}></div>
+      </div>
+      <p className="pt-3 text-sm">{place.date.toDate ? place.date.toDate().toDateString() : place.date}</p>
+      <p className="pt-3">{place.author}</p>
+      <p className="pt-3">Link to detail: /post/:id </p>
     </div>
   );
 };

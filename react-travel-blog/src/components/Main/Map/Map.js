@@ -36,16 +36,15 @@ const Map = () => {
   //   console.log(places)
   // }, [places])
 
-  const handleShowInfo = (blog) => {
-    setSelected(blog);
+  const handleShowInfoWindow = (place) => {
+    setSelected(place);
   };
 
-  const handleCloseInfo = (event) => {
+  const handleCloseInfoWindow = (event) => {
     setSelected(null);
   };
 
   
-
   return (
     <div className="w-full lg:w-1/2 " style={{ height: "100vh" }}>
 
@@ -55,24 +54,25 @@ const Map = () => {
         defaultCenter={defaultMapSettings.center}
         defaultZoom={defaultMapSettings.zoom}
       >
+        
         {places.map((place) => {
-          console.log(place)
           return (
             <Marker
               key={place.title}
               lat={place.geo_data.lat}
               lng={place.geo_data.lng}
-              showInfo={() => handleShowInfo(place)}
+              place={place}
+              showInfo={() => handleShowInfoWindow(place)}
             />
           );
         })}
 
 				{selected && (
 					<InfoWindow
-						lat={selected.lat}
-						lng={selected.lng}
-						blog={selected.blog}
-						closeInfo={handleCloseInfo}
+						lat={selected.geo_data.lat}
+						lng={selected.geo_data.lng}
+						place={selected}
+						closeInfo={handleCloseInfoWindow}
 					/>
 				)}
 

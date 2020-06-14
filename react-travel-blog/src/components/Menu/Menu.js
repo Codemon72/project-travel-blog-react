@@ -25,7 +25,7 @@ const Menu = () => {
 				<Link to="/contact" className="hidden md:block">
 					<img
 						src={contactLogo}
-						alt="Picture of a speech bubble with `Contact me`inside"
+						alt=""
 						className="w-16 h-16"
 						title="Contact"
 					/>
