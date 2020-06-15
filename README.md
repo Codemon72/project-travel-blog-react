@@ -32,7 +32,7 @@ The dashboard shows an overview of the all blog posts and a Google Map.
 
 ### 3. Authentication / Login
 - [ ] Use Firebase Auth (login with email and password) for authentication.
-- [ ] If the login button is clicked, a login form is shown right below the login button under the menu bar.
+- [x] If the login button is clicked, a login form is shown right below the login button under the menu bar.
 - [ ] The User can login with her email and password.
 - [ ] If successfully logged in, the login form disappears and instead of the login button a logout button is shown.
 - [ ] If logged in, there should be another button for adding a new blog post (icon + text: "New blog post") on the left of the logout button. It links to `/new`, where the logged-in user can add a new blog post.
@@ -127,15 +127,15 @@ A blog post should contain:
 
 ### 7. Imprint / Contact
 
-- [ ] Create a link `/contact` in the menu bar named "Contact".
-- [ ] On the contact page place your (and your team mate's) name.
-- [ ] Write two sentences about your project.
-- [ ] Put your (or if you prefer [Hamburg Coding School's](https://hamburgcodingschool.com/contact/)) contact details:
-  - [ ] name
-  - [ ] address
-  - [ ] email
-  - [ ] phone number
-- [ ] Write a note that this was a project from a course at Hamburg Coding School.
+- [x] Create a link `/contact` in the menu bar named "Contact".
+- [x] On the contact page place your (and your team mate's) name.
+- [x] Write two sentences about your project.
+- [x] Put your (or if you prefer [Hamburg Coding School's](https://hamburgcodingschool.com/contact/)) contact details:
+  - [x] name
+  - [x] address
+  - [x] email
+  - [x] phone number
+- [x] Write a note that this was a project from a course at Hamburg Coding School.
 
 
 ## Optional Bonus Tasks
