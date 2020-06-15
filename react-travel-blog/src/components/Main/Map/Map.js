@@ -8,20 +8,17 @@ import db from "../../../Firebase.js";
 const Map = () => {
   const keyConfig = { key: "" };
   const placesfromDB = [];
+
   const [places, setPlaces] = useState([]);
  
   const [selected, setSelected] = useState(null);
 
   const initialMapSettings = {
-    center: {
-      lat: places.length > 0 ? places[0].geo_data.lat : 37.794594,
-      lng: places.length > 0 ? places[0].geo_data.lng : -25.506134
-      // lat: 37.794594,
-      // lng: -25.506134
-    },
-    zoom: 4,
+    geo_data: {lat: 37.794594, lng: -25.506134},
+    zoom: 4
   };
-  // const [mapSettings, setMapSettings] = useState(initialMapSettings);
+
+  const [mapSettings, setMapSettings] = useState(initialMapSettings);
 
 
   useEffect(() => {
@@ -36,7 +33,7 @@ const Map = () => {
       .then( () => {
         sortPlacesByDate(placesfromDB);
         setPlaces(placesfromDB);
-        // setMapSettings({...mapSettings, center: placesfromDB[0].geo_data});
+        setMapSettings({geo_data: placesfromDB[0].geo_data});
       })
       .catch(err => {
         console.log('Error getting document', err);
@@ -52,8 +49,7 @@ const Map = () => {
 
   const handleShowInfoWindow = (place) => {
     setSelected(place);
-    // setMapSettings({...mapSettings, center: place.geo_data, zoom: 7}); 
-    // console.log(place.geo_data )
+    setMapSettings({geo_data: place.geo_data});
   };
 
   const handleCloseInfoWindow = (event) => {
@@ -67,8 +63,8 @@ const Map = () => {
       <GoogleMapReact
         distanceToMouse={()=>{}}
         bootstrapURLKeys={keyConfig}
-        center={initialMapSettings.center}
-        zoom={initialMapSettings.zoom}
+        center={mapSettings.geo_data}
+        zoom={mapSettings.zoom}
       >
         
         {places.map((place) => {
