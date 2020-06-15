@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import app from "../../Auth";
+import firebase from "../../Firebase";
 
 const Login = () => {
 	const [username, setUsername] = useState("");
@@ -15,22 +15,22 @@ const Login = () => {
 		setPassword(value);
 	};
 
-	// const login = (event) => {
-	// 	event.preventDefault();
-	// 	app
-	// 		.auth()
-	// 		.signInWithEmailAndPassword(username, password)
-	// 		.then(() => {
-	// 			console.log("success");
-	// 		})
-	// 		.catch((error) => {
-	// 			var errorCode = error.code;
-	// 			var errorMessage = error.message;
-	// 			// document.getElementById(
-	// 			// 	"errorMessage"
-	// 			// ).innerHTML = `<p class="text-red-500 text-xs italic">Username and password don´t match.</p>`;
-	// 		});
-	// };
+	const login = (event) => {
+		event.preventDefault();
+
+		firebase.auth
+			.signInWithEmailAndPassword(username, password)
+			.then(() => {
+				console.log("success");
+			})
+			.catch((error) => {
+				var errorCode = error.code;
+				var errorMessage = error.message;
+				// document.getElementById(
+				// 	"errorMessage"
+				// ).innerHTML = `<p class="text-red-500 text-xs italic">Username and password don´t match.</p>`;
+			});
+	};
 
 	// document.getElementById("loginForm").addEventListener("submit", login);
 
@@ -46,11 +46,11 @@ const Login = () => {
 			<h2 className="text-center text-2xl text-teal-800 font-bold pb-4">
 				Login
 			</h2>
-			<form>
+			<form onSubmit={login}>
 				<div className="mb-4">
 					<label
 						className="block text-gray-700 text-sm font-bold mb-2"
-						for="username"
+						htmlFor="username"
 					>
 						Username
 					</label>
@@ -66,7 +66,7 @@ const Login = () => {
 				<div>
 					<label
 						className="block text-gray-700 text-sm font-bold mb-2"
-						for="password"
+						htmlFor="password"
 					>
 						Password
 					</label>
@@ -84,7 +84,6 @@ const Login = () => {
 					<button
 						className="bg-teal-600 hover:bg-teal-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
 						type="submit"
-						// onSubmit={login}
 					>
 						Sign In
 					</button>

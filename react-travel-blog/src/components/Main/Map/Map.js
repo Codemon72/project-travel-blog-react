@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import GoogleMapReact from "google-map-react";
 import Marker from "../Marker/Marker.js";
 import InfoWindow from "../InfoWindow/InfoWindow.js";
-import db from "../../../Firebase.js";
+import firebase from "../../../Firebase.js";
 
 const Map = () => {
+	const db = firebase.firestore();
 	const keyConfig = { key: "" };
 	const placesfromDB = [];
 	const [places, setPlaces] = useState([]);
