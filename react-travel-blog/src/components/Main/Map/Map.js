@@ -8,6 +8,7 @@ import db from "../../../Firebase.js";
 const Map = () => {
   const keyConfig = { key: "" };
   const placesfromDB = [];
+
   const [places, setPlaces] = useState([]);
  
   const [selected, setSelected] = useState(null);
@@ -32,7 +33,6 @@ const Map = () => {
       .then( () => {
         sortPlacesByDate(placesfromDB);
         setPlaces(placesfromDB);
-        console.log(placesfromDB[0].geo_data)
         setMapSettings({geo_data: placesfromDB[0].geo_data});
       })
       .catch(err => {
@@ -94,11 +94,3 @@ const Map = () => {
 };
 
 export default Map;
-
-
-    // center: {
-    //   // lat: places.length > 0 ? places[0].geo_data.lat : 37.794594,
-    //   // lng: places.length > 0 ? places[0].geo_data.lng : -25.506134
-    //   lat: 37.794594,
-    //   lng: -25.506134
-    // },
