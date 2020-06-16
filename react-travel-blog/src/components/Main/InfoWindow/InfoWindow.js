@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./InfoWindow.css";
+import AppContext from './../../../AppContext'
 
 
 const InfoWindow = ({ place, closeInfo }) => {
+  const appContext = useContext(AppContext)
   return (
     <div className="infoWindow flex flex-col cursor-default">
       <div className="flex justify-between">
@@ -14,6 +16,7 @@ const InfoWindow = ({ place, closeInfo }) => {
       <p className="pt-3">Link to detail: /post/:id </p>
       <p className="pt-3">Latitude: {place.geo_data.lat}</p>
       <p className="pt-3">Longitude: {place.geo_data.lng}</p>
+      <div>{appContext.aProperty}</div>
     </div>
   );
 };
