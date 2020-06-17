@@ -29,10 +29,10 @@ The dashboard shows an overview of the all blog posts and a Google Map.
 
 
 ### now Bonus: 3. Authentication / Login
-- [ ] Use Firebase Auth (login with email and password) for authentication.
+- [x] Use Firebase Auth (login with email and password) for authentication.
 - [x] If the login button is clicked, a login form is shown right below the login button under the menu bar.
-- [ ] The User can login with her email and password.
-- [ ] If successfully logged in, the login form disappears and instead of the login button a logout button is shown.
+- [x] The User can login with her email and password.
+- [x] If successfully logged in, the login form disappears and instead of the login button a logout button is shown.
 - [ ] If logged in, there should be another button for adding a new blog post (icon + text: "New blog post") on the left of the logout button. It links to `/new`, where the logged-in user can add a new blog post.
 
 ### 4. World Map with Google Maps API
