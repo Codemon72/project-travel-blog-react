@@ -50,7 +50,7 @@ function App() {
 				<Menu />
 				<Route path="/" exact>
 					<Stage />
-					<AppContext.Provider value={places}>
+					<AppContext.Provider value={{places, selected}}>
 					<Main />
 					</AppContext.Provider>
 				</Route>

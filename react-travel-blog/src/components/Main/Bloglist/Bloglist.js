@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import AppContext from './../../../AppContext'
 
 const Bloglist = () => {
-	const places = useContext(AppContext)
+	const {places, selected} = useContext(AppContext)
 	console.log(places)
 	return (
 		<div className="w-full lg:w-1/2 bg-teal-600 text-white text-center font-semibold text-3xl md:text-4xl lg:text-5xl">
