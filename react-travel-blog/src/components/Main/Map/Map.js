@@ -4,7 +4,6 @@ import Marker from "../Marker/Marker.js";
 import InfoWindow from "../InfoWindow/InfoWindow.js";
 import AppContext from './../../../AppContext'
 
-
 const Map = () => {
   const {places, selected, setSelected} = useContext(AppContext)
   const keyConfig = { key: "" };
@@ -24,14 +23,18 @@ const Map = () => {
     setMapSettings({geo_data: place.geo_data});
   };
 
-  const handleCloseInfoWindow = (event) => {
-    setSelected(null);
-  };
+	const handleShowInfoWindow = (place) => {
+		setSelected(place);
+		// setMapSettings({...mapSettings, center: place.geo_data, zoom: 7});
+		// console.log(place.geo_data )
+	};
 
-  
-  return (
-    <div className="w-full lg:w-1/2 " style={{ height: "100vh" }}>
+	const handleCloseInfoWindow = (event) => {
+		setSelected(null);
+	};
 
+	return (
+		<div className="w-full lg:w-1/2 " style={{ height: "100vh" }}>
       <GoogleMapReact
         distanceToMouse={()=>{}}
         bootstrapURLKeys={keyConfig}
@@ -59,7 +62,6 @@ const Map = () => {
 						closeInfo={handleCloseInfoWindow}
 					/>
 				)}
-
 			</GoogleMapReact>
 		</div>
 	);

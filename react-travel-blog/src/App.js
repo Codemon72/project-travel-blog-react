@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./assets/main.css";
+import firebaseConfig from "./firebase.config";
 import Menu from "./components/Menu/Menu";
 import Main from "./components/Main/Main.js";
 import Stage from "./components/Stage/Stage";
@@ -39,7 +40,6 @@ function App() {
         console.log('Error getting document', err);
       });
   }, []);
-
 
 	return (
 		<Router>
