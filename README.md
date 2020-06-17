@@ -2,8 +2,6 @@
 A travel blog made with React
 
 
-# Project: Travel Blog in React
-
 This project is part of the curriculum of the Full-Stack Web Development program at [Hamburg Coding School](https://hamburgcodingschool.com/).
 
 ## Goal
@@ -30,7 +28,7 @@ The dashboard shows an overview of the all blog posts and a Google Map.
 > **Icon Resources:** We recommend you use [FontAwesome](https://fontawesome.com/) for your icons.
 
 
-### 3. Authentication / Login
+### now Bonus: 3. Authentication / Login
 - [ ] Use Firebase Auth (login with email and password) for authentication.
 - [x] If the login button is clicked, a login form is shown right below the login button under the menu bar.
 - [ ] The User can login with her email and password.
@@ -56,7 +54,7 @@ The dashboard shows an overview of the all blog posts and a Google Map.
 
 ### 5. Blog Posts
 
-#### Get Blog Posts from Firestore
+#### now Bonus: Get Blog Posts from Firestore
 
 - [x] Store the blog posts on Firebase Firestore and load them with the Firebase API.
 - [x] Also save the coordinates of a location with latitude and longitude.
@@ -90,7 +88,7 @@ A blog post should contain:
   - [ ] location with city and country
 
 
-### 6. New Blog Post
+### now Bonus: 6. New Blog Post
 
 - [ ] With the path `/new` a blog post form is shown, where a new blog post can be added.
 - [ ] On submit, the new blog post is sent and stored to Firestore.
