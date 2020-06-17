@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import contactLogo from "../../assets/img/contact-bubble.png";
 import { Link } from "react-router-dom";
-import Login from "./Login";
-import firebaseConfig from "../../firebase.config";
+import LoginForm from "./LoginForm";
+import Logout from "./Logout";
 import firebase from "firebase";
 
 const Menu = () => {
@@ -10,7 +10,6 @@ const Menu = () => {
 	const [error, setError] = useState(null);
 
 	useEffect(() => {
-		firebase.initializeApp(firebaseConfig);
 		//firebase.auth()
 		//.setPersistence(firebase.auth.Auth.Persistence.SESSION)
 		//.then(() => {
@@ -21,44 +20,21 @@ const Menu = () => {
 		//})
 	}, []);
 
-	const handleSignIn = async ({ email, password }) => {
+	const handleLogIn = async ({ username, password }) => {
 		try {
-			await firebase.auth().signInWithEmailAndPassword(email, password);
+			await firebase.auth().signInWithEmailAndPassword(username, password);
 		} catch (e) {
 			setError(e.message);
 		}
 	};
 
-	const handleSignOut = async () => {
+	const handleLogOut = async () => {
 		try {
 			await firebase.auth().signOut();
 		} catch (e) {
 			setError(e.message);
 		}
 	};
-
-	// const login = (event) => {
-	// 	event.preventDefault();
-
-	// 	firebase.auth
-	// 		.signInWithEmailAndPassword(username, password)
-	// 		.then(() => {
-	// 			console.log("success");
-	// 		})
-	// 		.catch((error) => {
-	// 			var errorCode = error.code;
-	// 			var errorMessage = error.message;
-	// 			// document.getElementById(
-	// 			// 	"errorMessage"
-	// 			// ).innerHTML = `<p class="text-red-500 text-xs italic">Username and password don´t match.</p>`;
-	// 		});
-	// };
-
-	// // document.getElementById("loginForm").addEventListener("submit", login);
-
-	// // auth.onAuthStateChanged((userAuth) => {
-	// // 	this.setState({ user: userAuth });
-	// // });
 
 	const [showLogin, setShowLogin] = useState(false);
 
@@ -89,13 +65,21 @@ const Menu = () => {
 					<img src={contactLogo} alt="" className="w-16 h-16" title="Contact" />
 				</Link>
 			</div>
-			<div
-				onClick={showLoginForm}
-				className="cursor-pointer inline-block text-sm px-4 lg:mr-2 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-600 hover:bg-white"
-			>
-				<p>Login</p>
+			<div>
+				{!user && (
+					<button
+						onClick={showLoginForm}
+						className="cursor-pointer inline-block text-sm px-4 lg:mr-2 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-600 hover:bg-white"
+					>
+						<p>Login</p>
+					</button>
+				)}
+				{user && (
+					<Logout logOut={handleLogOut} disableLoginWindow={showLoginForm} />
+				)}
 			</div>
-			{showLogin && <Login logIn={handleSignIn} />}
+
+			{!user && showLogin && <LoginForm logIn={handleLogIn} />}
 		</nav>
 	);
 };

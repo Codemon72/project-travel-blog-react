@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Login = ({ logIn }) => {
+const LoginForm = ({ logIn }) => {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 
@@ -18,11 +18,6 @@ const Login = ({ logIn }) => {
 		e.preventDefault();
 		logIn({ username, password });
 	};
-
-	// const handleLogOut = (e) => {
-	// 	e.preventDefault();
-	// 	logOut({ username, password });
-	// };
 
 	return (
 		<div
@@ -79,4 +74,4 @@ const Login = ({ logIn }) => {
 	);
 };
 
-export default Login;
+export default LoginForm;

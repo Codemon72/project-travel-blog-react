@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import GoogleMapReact from "google-map-react";
 import Marker from "../Marker/Marker.js";
 import InfoWindow from "../InfoWindow/InfoWindow.js";
-import firebaseConfig from "../../../firebase.config";
-import firebase from "firebase";
+import db from "../../../Firebase.js";
 
 const Map = () => {
 	const keyConfig = { key: "" };
@@ -24,8 +23,6 @@ const Map = () => {
 	// const [mapSettings, setMapSettings] = useState(initialMapSettings);
 
 	useEffect(() => {
-		firebase.initializeApp(firebaseConfig);
-		const db = firebase.firestore();
 		db.collection("blogPosts")
 			.get()
 			.then((posts) => {
