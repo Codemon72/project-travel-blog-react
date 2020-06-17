@@ -34,7 +34,6 @@ function App() {
       .then( () => {
         sortPlacesByDate(placesfromDB);
         setPlaces(placesfromDB);
-        // setMapSettings({geo_data: placesfromDB[0].geo_data});
       })
       .catch(err => {
         console.log('Error getting document', err);

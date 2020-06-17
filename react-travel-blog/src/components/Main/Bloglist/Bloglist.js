@@ -7,7 +7,11 @@ const Bloglist = () => {
 	return (
 		<div className="w-full lg:w-1/2 bg-teal-600 text-white text-center font-semibold text-3xl md:text-4xl lg:text-5xl">
 			<h2>Hier kommen alle Blogs rein</h2>
-			{places.length > 0 ? <div>{places[0].title}</div> : <div>Loading....</div>}
+			<h4>
+				{places.length > 0 && selected
+					? <div>Title of selected: <br/>"{selected.title}"</div> 
+					: <div>Select a marker on the map ....</div>}
+			</h4>
 		</div>
 	);
 };
