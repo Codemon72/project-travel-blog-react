@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import GoogleMapReact from "google-map-react";
 import Marker from "../Marker/Marker.js";
 import InfoWindow from "../InfoWindow/InfoWindow.js";
 import db from "../../../Firebase.js";
+import AppContext from './../../../AppContext'
 
 
 const Map = () => {
+  const appContext = useContext(AppContext)
   const keyConfig = { key: "" };
-  const placesfromDB = [];
+  
 
   const [places, setPlaces] = useState([]);
  
@@ -17,11 +19,11 @@ const Map = () => {
     geo_data: {lat: 37.794594, lng: -25.506134},
     zoom: 4
   };
-
   const [mapSettings, setMapSettings] = useState(initialMapSettings);
 
 
   useEffect(() => {
+    const placesfromDB = [];
     db.collection("blogPosts")
       .get()
       .then((posts) => {

@@ -7,10 +7,41 @@ import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import AppContext from './AppContext'
+import db from "./Firebase.js";
 
 
 function App() {
-	const [appState, setAppState] = useState({ aProperty: 'The App Property' })
+  const [appState, setAppState] = useState({ aProperty: 'The App Property' })
+  
+  const [places, setPlaces] = useState([]);
+ 
+  const [selected, setSelected] = useState(null);
+
+  const sortPlacesByDate = (array) => {
+    array.sort((a,b) => {
+      return b.date.seconds - a.date.seconds;
+    });
+  }
+
+  useEffect(() => {
+    const placesfromDB = [];
+    db.collection("blogPosts")
+      .get()
+      .then((posts) => {
+        posts.forEach((post) => {
+          const json = post.data();
+          placesfromDB.push(json);
+          });
+        })
+      .then( () => {
+        sortPlacesByDate(placesfromDB);
+        setPlaces(placesfromDB);
+        // setMapSettings({geo_data: placesfromDB[0].geo_data});
+      })
+      .catch(err => {
+        console.log('Error getting document', err);
+      });
+  }, []);
 
 
 	return (
