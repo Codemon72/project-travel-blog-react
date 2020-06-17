@@ -1,10 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import contactLogo from "../../assets/img/contact-bubble.png";
-
 import { Link } from "react-router-dom";
-import Login from "./Login";
+import LoginForm from "./LoginForm";
+import Logout from "./Logout";
+import firebase from "firebase";
 
 const Menu = () => {
+	const [user, setUser] = useState(null);
+	const [error, setError] = useState(null);
+
+	useEffect(() => {
+		//firebase.auth()
+		//.setPersistence(firebase.auth.Auth.Persistence.SESSION)
+		//.then(() => {
+		firebase.auth().onAuthStateChanged((userAuth) => {
+			setError(null);
+			setUser(userAuth);
+		});
+		//})
+	}, []);
+
+	const handleLogIn = async ({ username, password }) => {
+		try {
+			await firebase.auth().signInWithEmailAndPassword(username, password);
+		} catch (e) {
+			setError(e.message);
+		}
+	};
+
+	const handleLogOut = async () => {
+		try {
+			await firebase.auth().signOut();
+		} catch (e) {
+			setError(e.message);
+		}
+	};
+
 	const [showLogin, setShowLogin] = useState(false);
 
 	const showLoginForm = () => {
@@ -31,21 +62,24 @@ const Menu = () => {
 					</div>
 				</Link>
 				<Link to="/contact" className="hidden md:block">
-					<img
-						src={contactLogo}
-						alt=""
-						className="w-16 h-16"
-						title="Contact"
-					/>
+					<img src={contactLogo} alt="" className="w-16 h-16" title="Contact" />
 				</Link>
 			</div>
-			<div
-				onClick={showLoginForm}
-				className="cursor-pointer inline-block text-sm px-4 lg:mr-2 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-600 hover:bg-white"
-			>
-				<p>Login</p>
+			<div>
+				{!user && (
+					<button
+						onClick={showLoginForm}
+						className="cursor-pointer inline-block text-sm px-4 lg:mr-2 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-600 hover:bg-white"
+					>
+						<p>Login</p>
+					</button>
+				)}
+				{user && (
+					<Logout logOut={handleLogOut} disableLoginWindow={showLoginForm} />
+				)}
 			</div>
-			{showLogin && <Login />}
+
+			{!user && showLogin && <LoginForm logIn={handleLogIn} />}
 		</nav>
 	);
 };

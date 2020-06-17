@@ -1,6 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 
-const Login = () => {
+const LoginForm = ({ logIn }) => {
+	const [username, setUsername] = useState("");
+	const [password, setPassword] = useState("");
+
+	const changeUsername = (event) => {
+		const value = event.currentTarget.value;
+		setUsername(value);
+	};
+
+	const changePassword = (event) => {
+		const value = event.currentTarget.value;
+		setPassword(value);
+	};
+
+	const handleLogIn = (e) => {
+		e.preventDefault();
+		logIn({ username, password });
+	};
+
 	return (
 		<div
 			id="login-form"
@@ -9,11 +27,11 @@ const Login = () => {
 			<h2 className="text-center text-2xl text-teal-800 font-bold pb-4">
 				Login
 			</h2>
-			<form>
+			<form onSubmit={handleLogIn}>
 				<div className="mb-4">
 					<label
 						className="block text-gray-700 text-sm font-bold mb-2"
-						for="username"
+						htmlFor="username"
 					>
 						Username
 					</label>
@@ -21,6 +39,7 @@ const Login = () => {
 						className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 						id="username"
 						type="email"
+						onChange={changeUsername}
 						placeholder="name@example.com"
 						required
 					/>
@@ -28,7 +47,7 @@ const Login = () => {
 				<div>
 					<label
 						className="block text-gray-700 text-sm font-bold mb-2"
-						for="password"
+						htmlFor="password"
 					>
 						Password
 					</label>
@@ -36,6 +55,7 @@ const Login = () => {
 						className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
 						id="password"
 						type="password"
+						onChange={changePassword}
 						placeholder="******************"
 						required
 					/>
@@ -54,4 +74,4 @@ const Login = () => {
 	);
 };
 
-export default Login;
+export default LoginForm;
