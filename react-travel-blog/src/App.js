@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./assets/main.css";
-import firebaseConfig from "./firebase.config";
+import "./firebase.config";
+import * as firebase from "firebase";
 import Menu from "./components/Menu/Menu";
 import Main from "./components/Main/Main.js";
 import Stage from "./components/Stage/Stage";
@@ -8,7 +9,6 @@ import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import AppContext from './AppContext'
-import db from "./Firebase.js";
 
 
 function App() {  
@@ -24,6 +24,7 @@ function App() {
 
   useEffect(() => {
     const placesfromDB = [];
+    const db = firebase.firestore();
     db.collection("blogPosts")
       .get()
       .then((posts) => {
