@@ -142,7 +142,7 @@ You can choose any of these optional bonus tasks, in any order.
 
 ### Bonus 1: Map for Blog Post Detail Page
 
-- [ ] On the Blog Post Detail page, place a the map on the right side next to the blog post.
+- [ ] On the Blog Post Detail page, place a map on the right side next to the blog post.
 - [ ] The map shows centered the location of the blog post.
 
 ### Bonus 2: Firebase Storage for images
@@ -176,15 +176,15 @@ You can choose any of these optional bonus tasks, in any order.
 
 ## Modalities
 
-- [ ] You can work alone or in a team of two.
-- [ ] You are allowed (and even encouraged) to ask your classmates for help or help them.
-- [ ] Use all the documentation and online tutorials as you like.
-- [ ] You can ask Mary for help anytime.
-- [ ] For communication, use the Slack channel.
-- [ ] You get two consultation classes:
-  - [ ] Tuesday, June 16th, 6pm - 8pm
-  - [ ] Tuesday, June 23rd, 6pm - 8pm
-- [ ] The consultation classes take place in our online classroom at NewRow.
+- You can work alone or in a team of two.
+- You are allowed (and even encouraged) to ask your classmates for help or help them.
+- Use all the documentation and online tutorials as you like.
+- You can ask Mary for help anytime.
+- For communication, use the Slack channel.
+- You get two consultation classes:
+  - Tuesday, June 16th, 6pm - 8pm
+  - Tuesday, June 23rd, 6pm - 8pm
+- The consultation classes take place in our online classroom at NewRow.
 - **Deadline: June 25rd 2020, 6pm**
 
 

@@ -1,4 +1,12 @@
- /* Marker */
+/* General Styles */
+
+/* TODO: DELETE */
+h4 div {
+  font-family: "Amatic SC", cursive;
+  font-size: 30px;
+}
+
+/* Marker */
 .marker {
   position: absolute;
   width: 42px;
