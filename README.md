@@ -2,8 +2,6 @@
 A travel blog made with React
 
 
-# Project: Travel Blog in React
-
 This project is part of the curriculum of the Full-Stack Web Development program at [Hamburg Coding School](https://hamburgcodingschool.com/).
 
 ## Goal
@@ -30,9 +28,9 @@ The dashboard shows an overview of the all blog posts and a Google Map.
 > **Icon Resources:** We recommend you use [FontAwesome](https://fontawesome.com/) for your icons.
 
 
-### 3. Authentication / Login
+### now Bonus: 3. Authentication / Login
 - [ ] Use Firebase Auth (login with email and password) for authentication.
-- [ ] If the login button is clicked, a login form is shown right below the login button under the menu bar.
+- [x] If the login button is clicked, a login form is shown right below the login button under the menu bar.
 - [ ] The User can login with her email and password.
 - [ ] If successfully logged in, the login form disappears and instead of the login button a logout button is shown.
 - [ ] If logged in, there should be another button for adding a new blog post (icon + text: "New blog post") on the left of the logout button. It links to `/new`, where the logged-in user can add a new blog post.
@@ -56,7 +54,7 @@ The dashboard shows an overview of the all blog posts and a Google Map.
 
 ### 5. Blog Posts
 
-#### Get Blog Posts from Firestore
+#### now Bonus: Get Blog Posts from Firestore
 
 - [x] Store the blog posts on Firebase Firestore and load them with the Firebase API.
 - [x] Also save the coordinates of a location with latitude and longitude.
@@ -90,7 +88,7 @@ A blog post should contain:
   - [ ] location with city and country
 
 
-### 6. New Blog Post
+### now Bonus: 6. New Blog Post
 
 - [ ] With the path `/new` a blog post form is shown, where a new blog post can be added.
 - [ ] On submit, the new blog post is sent and stored to Firestore.
@@ -127,15 +125,15 @@ A blog post should contain:
 
 ### 7. Imprint / Contact
 
-- [ ] Create a link `/contact` in the menu bar named "Contact".
-- [ ] On the contact page place your (and your team mate's) name.
-- [ ] Write two sentences about your project.
-- [ ] Put your (or if you prefer [Hamburg Coding School's](https://hamburgcodingschool.com/contact/)) contact details:
-  - [ ] name
-  - [ ] address
-  - [ ] email
-  - [ ] phone number
-- [ ] Write a note that this was a project from a course at Hamburg Coding School.
+- [x] Create a link `/contact` in the menu bar named "Contact".
+- [x] On the contact page place your (and your team mate's) name.
+- [x] Write two sentences about your project.
+- [x] Put your (or if you prefer [Hamburg Coding School's](https://hamburgcodingschool.com/contact/)) contact details:
+  - [x] name
+  - [x] address
+  - [x] email
+  - [x] phone number
+- [x] Write a note that this was a project from a course at Hamburg Coding School.
 
 
 ## Optional Bonus Tasks
