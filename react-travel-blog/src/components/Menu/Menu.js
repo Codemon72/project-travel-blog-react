@@ -1,10 +1,65 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import contactLogo from "../../assets/img/contact-bubble.png";
-
 import { Link } from "react-router-dom";
 import Login from "./Login";
+import firebaseConfig from "../../firebase.config";
+import firebase from "firebase";
 
 const Menu = () => {
+	const [user, setUser] = useState(null);
+	const [error, setError] = useState(null);
+
+	useEffect(() => {
+		firebase.initializeApp(firebaseConfig);
+		//firebase.auth()
+		//.setPersistence(firebase.auth.Auth.Persistence.SESSION)
+		//.then(() => {
+		firebase.auth().onAuthStateChanged((userAuth) => {
+			setError(null);
+			setUser(userAuth);
+		});
+		//})
+	}, []);
+
+	const handleSignIn = async ({ email, password }) => {
+		try {
+			await firebase.auth().signInWithEmailAndPassword(email, password);
+		} catch (e) {
+			setError(e.message);
+		}
+	};
+
+	const handleSignOut = async () => {
+		try {
+			await firebase.auth().signOut();
+		} catch (e) {
+			setError(e.message);
+		}
+	};
+
+	// const login = (event) => {
+	// 	event.preventDefault();
+
+	// 	firebase.auth
+	// 		.signInWithEmailAndPassword(username, password)
+	// 		.then(() => {
+	// 			console.log("success");
+	// 		})
+	// 		.catch((error) => {
+	// 			var errorCode = error.code;
+	// 			var errorMessage = error.message;
+	// 			// document.getElementById(
+	// 			// 	"errorMessage"
+	// 			// ).innerHTML = `<p class="text-red-500 text-xs italic">Username and password don´t match.</p>`;
+	// 		});
+	// };
+
+	// // document.getElementById("loginForm").addEventListener("submit", login);
+
+	// // auth.onAuthStateChanged((userAuth) => {
+	// // 	this.setState({ user: userAuth });
+	// // });
+
 	const [showLogin, setShowLogin] = useState(false);
 
 	const showLoginForm = () => {
@@ -31,12 +86,7 @@ const Menu = () => {
 					</div>
 				</Link>
 				<Link to="/contact" className="hidden md:block">
-					<img
-						src={contactLogo}
-						alt=""
-						className="w-16 h-16"
-						title="Contact"
-					/>
+					<img src={contactLogo} alt="" className="w-16 h-16" title="Contact" />
 				</Link>
 			</div>
 			<div
@@ -45,7 +95,7 @@ const Menu = () => {
 			>
 				<p>Login</p>
 			</div>
-			{showLogin && <Login />}
+			{showLogin && <Login logIn={handleSignIn} />}
 		</nav>
 	);
 };

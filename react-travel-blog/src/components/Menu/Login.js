@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import firebase from "../../Firebase";
 
-const Login = () => {
+const Login = ({ logIn }) => {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 
@@ -15,28 +14,15 @@ const Login = () => {
 		setPassword(value);
 	};
 
-	const login = (event) => {
-		event.preventDefault();
-
-		firebase.auth
-			.signInWithEmailAndPassword(username, password)
-			.then(() => {
-				console.log("success");
-			})
-			.catch((error) => {
-				var errorCode = error.code;
-				var errorMessage = error.message;
-				// document.getElementById(
-				// 	"errorMessage"
-				// ).innerHTML = `<p class="text-red-500 text-xs italic">Username and password don´t match.</p>`;
-			});
+	const handleLogIn = (e) => {
+		e.preventDefault();
+		logIn({ username, password });
 	};
 
-	// document.getElementById("loginForm").addEventListener("submit", login);
-
-	// auth.onAuthStateChanged((userAuth) => {
-	// 	this.setState({ user: userAuth });
-	// });
+	// const handleLogOut = (e) => {
+	// 	e.preventDefault();
+	// 	logOut({ username, password });
+	// };
 
 	return (
 		<div
@@ -46,7 +32,7 @@ const Login = () => {
 			<h2 className="text-center text-2xl text-teal-800 font-bold pb-4">
 				Login
 			</h2>
-			<form onSubmit={login}>
+			<form onSubmit={handleLogIn}>
 				<div className="mb-4">
 					<label
 						className="block text-gray-700 text-sm font-bold mb-2"
