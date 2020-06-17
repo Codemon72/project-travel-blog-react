@@ -11,7 +11,7 @@ import db from "./Firebase.js";
 
 
 function App() {
-  const [appState, setAppState] = useState({ aProperty: 'The App Property' })
+  // const [appState, setAppState] = useState({ aProperty: 'The App Property' })
   
   const [places, setPlaces] = useState([]);
  
@@ -50,7 +50,7 @@ function App() {
 				<Menu />
 				<Route path="/" exact>
 					<Stage />
-					<AppContext.Provider value={{places, selected}}>
+					<AppContext.Provider value={{places, setPlaces, selected, setSelected}}>
 					<Main />
 					</AppContext.Provider>
 				</Route>

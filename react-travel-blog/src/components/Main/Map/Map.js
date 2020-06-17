@@ -7,13 +7,13 @@ import AppContext from './../../../AppContext'
 
 
 const Map = () => {
-  const appContext = useContext(AppContext)
+  const {places, setPlaces, selected, setSelected} = useContext(AppContext)
   const keyConfig = { key: "" };
   
 
-  const [places, setPlaces] = useState([]);
+  // const [places, setPlaces] = useState([]);
  
-  const [selected, setSelected] = useState(null);
+  // const [selected, setSelected] = useState(null);
 
   const initialMapSettings = {
     geo_data: {lat: 37.794594, lng: -25.506134},
@@ -21,33 +21,38 @@ const Map = () => {
   };
   const [mapSettings, setMapSettings] = useState(initialMapSettings);
 
+  // useEffect(() => {
+  //   setMapSettings({geo_data: placesfromDB[0].geo_data})
 
-  useEffect(() => {
-    const placesfromDB = [];
-    db.collection("blogPosts")
-      .get()
-      .then((posts) => {
-        posts.forEach((post) => {
-          const json = post.data();
-          placesfromDB.push(json);
-          });
-        })
-      .then( () => {
-        sortPlacesByDate(placesfromDB);
-        setPlaces(placesfromDB);
-        setMapSettings({geo_data: placesfromDB[0].geo_data});
-      })
-      .catch(err => {
-        console.log('Error getting document', err);
-      });
-  }, []);
+  // }, [places])
+
+
+  // useEffect(() => {
+  //   const placesfromDB = [];
+  //   db.collection("blogPosts")
+  //     .get()
+  //     .then((posts) => {
+  //       posts.forEach((post) => {
+  //         const json = post.data();
+  //         placesfromDB.push(json);
+  //         });
+  //       })
+  //     .then( () => {
+  //       sortPlacesByDate(placesfromDB);
+  //       setPlaces(placesfromDB);
+  //       setMapSettings({geo_data: placesfromDB[0].geo_data});
+  //     })
+  //     .catch(err => {
+  //       console.log('Error getting document', err);
+  //     });
+  // }, []);
 
   
-  const sortPlacesByDate = (array) => {
-    array.sort((a,b) => {
-      return b.date.seconds - a.date.seconds;
-    });
-  }
+  // const sortPlacesByDate = (array) => {
+  //   array.sort((a,b) => {
+  //     return b.date.seconds - a.date.seconds;
+  //   });
+  // }
 
   const handleShowInfoWindow = (place) => {
     setSelected(place);
