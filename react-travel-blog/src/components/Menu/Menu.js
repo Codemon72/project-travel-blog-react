@@ -74,8 +74,14 @@ const Menu = () => {
 						<p>Login</p>
 					</button>
 				)}
+
 				{user && (
-					<Logout logOut={handleLogOut} disableLoginWindow={showLoginForm} />
+					<div>
+						<div className="inline-block text-sm px-4 lg:mr-2 py-2 leading-none border rounded text-white border-white">
+							Hallo, {user.displayName}
+						</div>
+						<Logout logOut={handleLogOut} disableLoginWindow={showLoginForm} />
+					</div>
 				)}
 			</div>
 
