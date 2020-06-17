@@ -50,7 +50,7 @@ function App() {
 				<Menu />
 				<Route path="/" exact>
 					<Stage />
-					<AppContext.Provider value={appState}>
+					<AppContext.Provider value={places}>
 					<Main />
 					</AppContext.Provider>
 				</Route>
