@@ -1,6 +1,6 @@
 import React from "react";
-import Bloglist from "./Bloglist/Bloglist";
-import Map from "./Map/Map";
+import Bloglist from "./Bloglist";
+import Map from "./Map";
 
 const Main = () => {
 	return (

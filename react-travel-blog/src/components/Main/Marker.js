@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import marker from "../../../assets/img/marker.svg";
-// import pin from "../../../assets/img/pin.svg";
-import markerBlue from "../../../assets/img/markerBlue.svg";
-import "./Marker.css";
+import marker from "../../assets/img/marker.svg";
+// import pin from "../../assets/img/pin.svg";
+import markerBlue from "../../assets/img/markerBlue.svg";
+import "./../../App.css";
 
 
 const Marker = (props) => {
