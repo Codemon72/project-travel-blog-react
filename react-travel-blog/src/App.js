@@ -10,9 +10,7 @@ import AppContext from './AppContext'
 import db from "./Firebase.js";
 
 
-function App() {
-  // const [appState, setAppState] = useState({ aProperty: 'The App Property' })
-  
+function App() {  
   const [places, setPlaces] = useState([]);
  
   const [selected, setSelected] = useState(null);

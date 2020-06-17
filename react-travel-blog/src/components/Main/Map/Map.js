@@ -2,18 +2,12 @@ import React, { useState, useEffect, useContext } from "react";
 import GoogleMapReact from "google-map-react";
 import Marker from "../Marker/Marker.js";
 import InfoWindow from "../InfoWindow/InfoWindow.js";
-import db from "../../../Firebase.js";
 import AppContext from './../../../AppContext'
 
 
 const Map = () => {
-  const {places, setPlaces, selected, setSelected} = useContext(AppContext)
+  const {places, selected, setSelected} = useContext(AppContext)
   const keyConfig = { key: "" };
-  
-
-  // const [places, setPlaces] = useState([]);
- 
-  // const [selected, setSelected] = useState(null);
 
   const initialMapSettings = {
     geo_data: {lat: 37.794594, lng: -25.506134},
@@ -21,38 +15,9 @@ const Map = () => {
   };
   const [mapSettings, setMapSettings] = useState(initialMapSettings);
 
-  // useEffect(() => {
-  //   setMapSettings({geo_data: placesfromDB[0].geo_data})
-
-  // }, [places])
-
-
-  // useEffect(() => {
-  //   const placesfromDB = [];
-  //   db.collection("blogPosts")
-  //     .get()
-  //     .then((posts) => {
-  //       posts.forEach((post) => {
-  //         const json = post.data();
-  //         placesfromDB.push(json);
-  //         });
-  //       })
-  //     .then( () => {
-  //       sortPlacesByDate(placesfromDB);
-  //       setPlaces(placesfromDB);
-  //       setMapSettings({geo_data: placesfromDB[0].geo_data});
-  //     })
-  //     .catch(err => {
-  //       console.log('Error getting document', err);
-  //     });
-  // }, []);
-
-  
-  // const sortPlacesByDate = (array) => {
-  //   array.sort((a,b) => {
-  //     return b.date.seconds - a.date.seconds;
-  //   });
-  // }
+  useEffect(() => {
+    if (places.length > 0) {setMapSettings({geo_data: places[0].geo_data})}
+  }, [places])
 
   const handleShowInfoWindow = (place) => {
     setSelected(place);
