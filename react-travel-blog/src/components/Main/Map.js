@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import GoogleMapReact from "google-map-react";
-import Marker from "../Marker/Marker.js";
-import InfoWindow from "../InfoWindow/InfoWindow.js";
-import AppContext from './../../../AppContext'
+import Marker from "./Marker.js";
+import InfoWindow from "./InfoWindow.js";
+import AppContext from '../../AppContext'
 
 
 const Map = () => {
@@ -11,12 +11,12 @@ const Map = () => {
 
   const initialMapSettings = {
     geo_data: {lat: 37.794594, lng: -25.506134},
-    zoom: 4
+    zoom: 1
   };
   const [mapSettings, setMapSettings] = useState(initialMapSettings);
 
   useEffect(() => {
-    if (places.length > 0) {setMapSettings({geo_data: places[0].geo_data})}
+    if (places.length > 0) {setMapSettings({geo_data: places[0].geo_data, zoom: 4})}
   }, [places])
 
   const handleShowInfoWindow = (place) => {
