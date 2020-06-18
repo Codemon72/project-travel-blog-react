@@ -58,8 +58,8 @@ The dashboard shows an overview of the all blog posts and a Google Map.
 
 - [x] Store the blog posts on Firebase Firestore and load them with the Firebase API.
 - [x] Also save the coordinates of a location with latitude and longitude.
-- [ ] Load all blog posts on the dashboard (main) page.
-- [ ] The blog post previews should be visible on the left, right beside the map.
+- [x] Load all blog posts on the dashboard (main) page.
+- [x] The blog post previews should be visible on the left, right beside the map.
 
 #### Blog Post Previews
 
