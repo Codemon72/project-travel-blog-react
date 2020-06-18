@@ -88,7 +88,9 @@ const Menu = () => {
 				)}
 			</div>
 
-			{!user && showLogin && <LoginForm logIn={handleLogIn} />}
+			{!user && showLogin && (
+				<LoginForm logIn={handleLogIn} errorMessage={error} />
+			)}
 		</nav>
 	);
 };
