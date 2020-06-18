@@ -38,7 +38,7 @@ const Menu = () => {
 
 	const [showLogin, setShowLogin] = useState(false);
 
-	const showLoginForm = () => {
+	const toggleLoginForm = () => {
 		setShowLogin(!showLogin);
 	};
 
@@ -68,7 +68,7 @@ const Menu = () => {
 			<div>
 				{!user && (
 					<button
-						onClick={showLoginForm}
+						onClick={toggleLoginForm}
 						className="cursor-pointer inline-block text-sm px-4 lg:mr-2 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-600 hover:bg-white"
 					>
 						<p>Login</p>
@@ -80,7 +80,10 @@ const Menu = () => {
 						<div className="inline-block text-sm px-4 lg:mr-2 py-2 leading-none border rounded text-white border-white">
 							Hallo, {user.displayName}
 						</div>
-						<Logout logOut={handleLogOut} disableLoginWindow={showLoginForm} />
+						<Logout
+							logOut={handleLogOut}
+							disableLoginWindow={toggleLoginForm}
+						/>
 					</div>
 				)}
 			</div>
