@@ -37,6 +37,10 @@ h2 {
   right: 0;
 }
 
+#current-user {
+  font-family: "Amatic SC", cursive;
+}
+
 /* Marker */
 .marker {
   position: absolute;

@@ -8,6 +8,7 @@ import firebase from "firebase";
 const Menu = () => {
 	const [user, setUser] = useState(null);
 	const [error, setError] = useState(null);
+	const [userPhoto, setUserPhoto] = useState(null);
 
 	useEffect(() => {
 		//firebase.auth()
@@ -16,6 +17,7 @@ const Menu = () => {
 		firebase.auth().onAuthStateChanged((userAuth) => {
 			setError(null);
 			setUser(userAuth);
+			setUserPhoto(userAuth.photoURL);
 		});
 		//})
 	}, []);
@@ -76,9 +78,19 @@ const Menu = () => {
 				)}
 
 				{user && (
-					<div>
-						<div className="inline-block text-sm px-4 lg:mr-2 py-2 leading-none border rounded text-white border-white">
-							Hallo, {user.displayName}
+					<div className="flex items-center">
+						<div className="flex items-center">
+							<img
+								className="w-12 h-12 md:w-14 md:h-14 border border-teal-900 border-4 rounded-full"
+								src={userPhoto}
+								alt="Avatar of the current user"
+							/>
+							<div
+								id="current-user"
+								className="text-sm px-4 lg:mr-2 py-2 leading-none text-white font-bold text-2xl"
+							>
+								Hi, {user.displayName}
+							</div>
 						</div>
 						<Logout
 							logOut={handleLogOut}
