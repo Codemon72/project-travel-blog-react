@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const LoginForm = ({ logIn }) => {
+const LoginForm = ({ logIn, errorMessage }) => {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 
@@ -22,7 +22,7 @@ const LoginForm = ({ logIn }) => {
 	return (
 		<div
 			id="login-form"
-			className="bg-white shadow-md rounded px-8 pt-4 pb-8 text-left"
+			className="bg-white shadow-md rounded px-8 pt-4 pb-8 text-left w-1/3"
 		>
 			<h2 className="text-center text-2xl text-teal-800 font-bold pb-4">
 				Login
@@ -52,7 +52,7 @@ const LoginForm = ({ logIn }) => {
 						Password
 					</label>
 					<input
-						className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+						className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-6 leading-tight focus:outline-none focus:shadow-outline"
 						id="password"
 						type="password"
 						onChange={changePassword}
@@ -60,7 +60,9 @@ const LoginForm = ({ logIn }) => {
 						required
 					/>
 				</div>
-				<div className="mb-6" id="errorMessage"></div>
+				{errorMessage && (
+					<div className="mb-6 text-red-700 text-sm">{errorMessage}</div>
+				)}
 				<div className="flex items-center justify-between">
 					<button
 						className="bg-teal-600 hover:bg-teal-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
