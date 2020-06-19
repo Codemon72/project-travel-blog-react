@@ -30,7 +30,7 @@ const Map = () => {
 
   
   return (
-    <div className="w-full lg:w-1/2 border-4 border-white rounded" style={{ height: "100vh" }}>
+    <div className="w-full lg:w-1/2 border-4 border-white rounded shadow-xl" style={{ height: "100vh" }}>
 
       <GoogleMapReact
         distanceToMouse={()=>{}}
