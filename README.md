@@ -63,10 +63,10 @@ The dashboard shows an overview of the all blog posts and a Google Map.
 
 #### Blog Post Previews
 
-- [ ] On the left all blog posts are listed as previews (similar to the Micro Blog from JavaScript for Web).
-- [ ] The blogs are ordered ascending by visiting date.
+- [x] On the left all blog posts are listed as previews (similar to the Micro Blog from JavaScript for Web).
+- [x] The blogs are ordered ascending by visiting date.
 - [ ] Each preview contains:
-  - [ ] title
+  - [x] title
   - [ ] visiting date
   - [ ] authors image + name (can be hardcoded)
   - [ ] image
@@ -163,7 +163,7 @@ You can choose any of these optional bonus tasks, in any order.
 
 ### Bonus 4: Focus of Blog Post in List on Marker Active
 
-- [ ] If the user clicks on a marker, the corresponding blog post entry aside in list gets highlighted (e.g. with applying a prominent border color to it).
+- [x] If the user clicks on a marker, the corresponding blog post entry aside in list gets highlighted (e.g. with applying a prominent border color to it).
 
 ### Bonus 5: Provide a user profile page
 

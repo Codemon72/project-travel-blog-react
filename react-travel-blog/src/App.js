@@ -8,7 +8,7 @@ import Stage from "./components/Stage/Stage";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import AppContext from "./AppContext"
+import AppContext from "./AppContext";
 
 
 function App() {  
