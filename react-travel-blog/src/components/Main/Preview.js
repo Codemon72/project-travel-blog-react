@@ -15,15 +15,9 @@ const Preview = ({ place, selected, key }) => {
 	});
 
 	return (
-    <Link to={`/details/${place.id}`}>
+    <Link to={`/details/${place.id}`} className={selected && place.title === selected.title && " highlighting hoverEffect"}>
 		<div
-			className={
-				"bloglist__card text-teal-900" +
-				(selected &&
-					place.title === selected.title &&
-					" highlighting hoverEffect")
-			}
-		>
+			className="bloglist__card text-teal-900">
 			<img className="block" src={imageUrl} alt={place.title} />
 			<div className="bloglist__content">
 				<h4 className="bloglist__title">{place.title}</h4>
