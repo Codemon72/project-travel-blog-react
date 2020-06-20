@@ -9,6 +9,7 @@ const Menu = () => {
 	const [user, setUser] = useState(null);
 	const [error, setError] = useState(null);
 	const [userPhoto, setUserPhoto] = useState(null);
+	const [showLogin, setShowLogin] = useState(false);
 
 	useEffect(() => {
 		//firebase.auth()
@@ -37,8 +38,6 @@ const Menu = () => {
 			setError(e.message);
 		}
 	};
-
-	const [showLogin, setShowLogin] = useState(false);
 
 	const toggleLoginForm = () => {
 		setShowLogin(!showLogin);
