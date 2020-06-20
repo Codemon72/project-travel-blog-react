@@ -33,6 +33,7 @@ h2 {
   position: absolute;
   top: 8rem;
   right: 0;
+  z-index: 999;
 }
 
 #current-user {
@@ -94,7 +95,7 @@ h2 {
     padding: 0 1.5rem;
     grid-template-columns: 1fr 1fr;
   }
-} 
+}
 @media only screen and (min-width: 1280px) {
   .bloglist {
     grid-template-columns: 1fr 1fr;
@@ -124,7 +125,7 @@ h2 {
 
 .bloglist img {
   object-fit: cover;
-  border-radius: 6px 6px 0 0 ;
+  border-radius: 6px 6px 0 0;
 }
 .bloglist__content {
   padding: 1rem;
@@ -138,7 +139,6 @@ h2 {
   line-height: 36px;
 }
 
-
 /* 'sm': '640px' */
 /* @media only screen and (min-width: 640px) {} */
 /* 'md': '768px' */
@@ -147,7 +147,6 @@ h2 {
 /* @media only screen and (min-width: 1024px) {} */
 /* 'xl': '1280px' */
 /* @media only screen and (min-width: 1280px) {} */
-
 
 /* * { outline: 2px dotted red }
 * * { outline: 2px dotted green }
