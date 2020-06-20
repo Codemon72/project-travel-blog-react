@@ -8,7 +8,7 @@ const Bloglist = () => {
 	return (
 		<div className="w-full lg:w-1/2 bg-teal-600 bloglist">
 			{places.map((place) => {
-				return <Preview key={place.title} selected={selected} place={place} />;
+				return <Preview key={place.id} selected={selected} place={place} />;
 			})}
 		</div>
 	);

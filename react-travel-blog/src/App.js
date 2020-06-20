@@ -21,8 +21,13 @@ function App() {
 
 	const sortPlacesByDate = (array) => {
 		array.sort((a, b) => {
-			return b.date.seconds - a.date.seconds;
+			return b.last_visited - a.last_visited;
 		});
+  };
+  
+  const beautifyDate = (num) => {
+		const str = num.toString()
+		return `${str.substr(0, 4)} / ${str.substr(4, 2)} / ${str.substr(6, 2)}`;
 	};
 
 	useEffect(() => {
@@ -34,7 +39,7 @@ function App() {
 				posts.forEach((post) => {
           const json = post.data();
           json.id = post.id;
-					placesfromDB.push(json);
+          placesfromDB.push(json);
 				});
 			})
 			.then(() => {
@@ -53,7 +58,7 @@ function App() {
 				<Route path="/" exact>
 					<Stage />
 					<AppContext.Provider
-						value={{ places, setPlaces, selected, setSelected, getUrlObject }}
+						value={{ places, setPlaces, selected, setSelected, getUrlObject, beautifyDate }}
 					>
 						<Main />
 					</AppContext.Provider>
