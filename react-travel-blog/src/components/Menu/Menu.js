@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import contactLogo from "../../assets/img/contact-bubble.png";
+import addImage from "../../assets/img/hinzufuegen_weiß.png";
 import { Link } from "react-router-dom";
 import LoginForm from "./LoginForm";
 import Logout from "./Logout";
@@ -90,6 +91,18 @@ const Menu = () => {
 							>
 								Hi, {user.displayName}
 							</div>
+
+							<a className="text-sm cursor-pointer px-2 mr-2 py-2 border rounded text-white border-white hover:border-transparent hover:text-teal-600 hover:bg-white">
+								<img
+									className="w-4 h-4 mx-2 inline"
+									src={addImage}
+									alt="Button to add a block post"
+									title="Add a Blog"
+								/>
+								<div className="inline">
+									Add <span className="font-bold uppercase">new</span> post
+								</div>
+							</a>
 						</div>
 						<Logout
 							logOut={handleLogOut}

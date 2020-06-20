@@ -1,7 +1,8 @@
 import React, { useState, useContext, useEffect } from "react";
 import AppContext from "../AppContext";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import authorPic from "../assets/img/Christoph-avatar.png";
+import goBackbutton from "../assets/img/linker-pfeil_weiß.png";
 import Map from "./Main/Map";
 
 const Details = () => {
@@ -23,6 +24,13 @@ const Details = () => {
 
 	return (
 		<div>
+			<Link to="/" className="flex justify-center items-center">
+				<img className="w-8 h-8 mx-6 my-12 inline" src={goBackbutton} />
+				<div className="inline font-bold text-2xl amatic text-white ">
+					Travel back home ...
+				</div>
+			</Link>
+
 			{detailEntry && (
 				<div className="flex lg:flex-row flex-col justify-center p-10 shadow-lg">
 					<div className="w-full relative container max-w-lg rounded border-4 border-white overflow-hidden justify-center bg-white">
