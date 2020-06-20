@@ -64,8 +64,9 @@ function App() {
 						selected,
 						setSelected,
 						getUrlObject,
-						beautifyDate,
+						beautifyDate
 					}}
+
 				>
 					<Route path="/" exact>
 						<Stage />
