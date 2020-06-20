@@ -15,7 +15,7 @@ const Preview = ({ place, selected, key }) => {
 				"bloglist__card text-teal-900 " +
 				(selected &&
 					place.title === selected.title &&
-					" border-solid border-4 border-red-700 hoverEffect")
+					" highlighting hoverEffect")
 			}
 		>
 			<img className="block" src={imageUrl} alt="{place.title}" />
