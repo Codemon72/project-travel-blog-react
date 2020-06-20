@@ -136,8 +136,14 @@ h2 {
 .bloglist__author {
   font-size: 18px;
   line-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-
+.bloglist__author img {
+  height: 42px;
+  border-radius: 50%;
+}
 
 /* 'sm': '640px' */
 /* @media only screen and (min-width: 640px) {} */

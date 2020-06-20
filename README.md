@@ -51,7 +51,7 @@ The dashboard shows an overview of the all blog posts and a Google Map.
 - It contains:
   - [x] title
   - [x] visiting date
-  - [ ] authors image and name (can be hardcoded)
+  - [x] authors image and name (can be hardcoded)
   - [ ] Place a link, which links to the detail page: `/post/:id`
   - [x] The InfoWindow can be closed by clicking on the "x" (which is placed at right-top in the InfoWindow
 

@@ -58,7 +58,7 @@ function App() {
 				<Menu />
 
 				<AppContext.Provider
-					value={{ places, setPlaces, selected, setSelected, getUrlObject }}
+					value={{ places, setPlaces, selected, setSelected, getUrlObject, beautifyDate }}
 				>
 					<Route path="/" exact>
 						<Stage />
