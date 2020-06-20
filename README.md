@@ -1,6 +1,10 @@
 # Project-Travel-Blog-React
 A travel blog made with React
 
+by Christoph Pöllmann aka [cpoelle](https://github.com/cpoelle/)
+und Clemens Brüsch aka [Codemon72](https://github.com/Codemon72)
+
+
 
 This project is part of the curriculum of the Full-Stack Web Development program at [Hamburg Coding School](https://hamburgcodingschool.com/).
 
@@ -69,7 +73,7 @@ The dashboard shows an overview of the all blog posts and a Google Map.
   - [x] title
   - [ ] visiting date
   - [ ] authors image + name (can be hardcoded)
-  - [ ] image
+  - [x] image
   - [ ] When user clicks on one of the listed blog post than she gets linked to the detail page `/post/:id`
 
 
@@ -202,7 +206,7 @@ You can choose any of these optional bonus tasks, in any order.
 
       For more information check out: https://create-react-app.dev/docs/adding-custom-environment-variables/.
 
-  - If you worked in a team, link the GitHub accounts of both of you in the README.md.
+  - [x] If you worked in a team, link the GitHub accounts of both of you in the README.md.
 
 2. Send us an email with the following information:
   - A link to your GitHub repository
