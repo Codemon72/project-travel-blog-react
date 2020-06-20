@@ -42,7 +42,7 @@ const Map = () => {
         {places.map((place) => {
           return (
             <Marker
-              key={place.title}
+              key={place.id}
               lat={place.geo_data.lat}
               lng={place.geo_data.lng}
               place={place}

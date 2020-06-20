@@ -3,7 +3,7 @@ import AppContext from "../../AppContext";
 
 const Preview = ({ place, selected, key }) => {
 	const [imageUrl, setImageUrl] = useState(null);
-	const { getUrlObject } = useContext(AppContext);
+	const { getUrlObject, beautifyDate } = useContext(AppContext);
 
 	getUrlObject(place.image.src).then((url) => {
 		setImageUrl(url);
@@ -21,7 +21,7 @@ const Preview = ({ place, selected, key }) => {
 			<img className="block" src={imageUrl} alt="{place.title}" />
 			<div className="bloglist__content">
 				<h4 className="bloglist__title">{place.title}</h4>
-				<div className="bloglist__date">visiting date: xxx</div>
+				<div className="bloglist__date">last visited: {beautifyDate(place.last_visited)}</div>
 				<div className="bloglist__author"> {place.author}</div>
 			</div>
 		</div>
