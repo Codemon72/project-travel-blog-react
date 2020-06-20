@@ -71,7 +71,10 @@ function App() {
 						<Stage />
 						<Main />
 					</Route>
-					<Route path="/details/:id" component={Details} />
+
+					<Route exact path="/details/:id">
+						<div>{places.length > 0 && <Details />}</div>
+					</Route>
 				</AppContext.Provider>
 
 				<Route path="/contact" component={Contact} />
