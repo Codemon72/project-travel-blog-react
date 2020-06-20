@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import AppContext from "../../AppContext";
 
-const Preview = ({ place, selected, key, getUrl }) => {
+const Preview = ({ place, selected, key }) => {
 	const [imageUrl, setImageUrl] = useState(null);
+	const { getUrlObject } = useContext(AppContext);
 
-	getUrl(place.image.src).then((url) => {
+	getUrlObject(place.image.src).then((url) => {
 		setImageUrl(url);
 	});
 
