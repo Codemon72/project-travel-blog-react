@@ -10,37 +10,40 @@ import Footer from "./components/Footer";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import AppContext from "./AppContext";
 
+function App() {
+	const [places, setPlaces] = useState([]);
+	const [selected, setSelected] = useState(null);
 
-function App() {  
-  const [places, setPlaces] = useState([]);
- 
-  const [selected, setSelected] = useState(null);
+	const getUrlObject = (fileName) => {
+		const imageRef = firebase.storage().ref().child(`blogPics/${fileName}`);
+		return imageRef.getDownloadURL();
+	};
 
-  const sortPlacesByDate = (array) => {
-    array.sort((a,b) => {
-      return b.date.seconds - a.date.seconds;
-    });
-  }
+	const sortPlacesByDate = (array) => {
+		array.sort((a, b) => {
+			return b.date.seconds - a.date.seconds;
+		});
+	};
 
-  useEffect(() => {
-    const placesfromDB = [];
-    const db = firebase.firestore();
-    db.collection("blogPosts")
-      .get()
-      .then((posts) => {
-        posts.forEach((post) => {
-          const json = post.data();
-          placesfromDB.push(json);
-          });
-        })
-      .then( () => {
-        sortPlacesByDate(placesfromDB);
-        setPlaces(placesfromDB);
-      })
-      .catch(err => {
-        console.log('Error getting document', err);
-      });
-  }, []);
+	useEffect(() => {
+		const placesfromDB = [];
+		const db = firebase.firestore();
+		db.collection("blogPosts")
+			.get()
+			.then((posts) => {
+				posts.forEach((post) => {
+					const json = post.data();
+					placesfromDB.push(json);
+				});
+			})
+			.then(() => {
+				sortPlacesByDate(placesfromDB);
+				setPlaces(placesfromDB);
+			})
+			.catch((err) => {
+				console.log("Error getting document", err);
+			});
+	}, []);
 
 	return (
 		<Router>
@@ -48,8 +51,10 @@ function App() {
 				<Menu />
 				<Route path="/" exact>
 					<Stage />
-					<AppContext.Provider value={{places, setPlaces, selected, setSelected}}>
-					<Main />
+					<AppContext.Provider
+						value={{ places, setPlaces, selected, setSelected, getUrlObject }}
+					>
+						<Main />
 					</AppContext.Provider>
 				</Route>
 				<Route path="/contact" component={Contact} />
