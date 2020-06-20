@@ -71,7 +71,7 @@ function App() {
 						<Stage />
 						<Main />
 					</Route>
-					<Route path="/details" component={Details} />
+					<Route path="/details/:id" component={Details} />
 				</AppContext.Provider>
 
 				<Route path="/contact" component={Contact} />
