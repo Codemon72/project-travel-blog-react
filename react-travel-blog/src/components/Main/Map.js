@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import GoogleMapReact from "google-map-react";
 import Marker from "./Marker.js";
 import InfoWindow from "./InfoWindow.js";
-import AppContext from "../../AppContext"
+import AppContext from "../../AppContext";
 
 
 const Map = () => {

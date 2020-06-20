@@ -40,7 +40,6 @@ function App() {
           const json = post.data();
           json.id = post.id;
           placesfromDB.push(json);
-          console.log(json)
 				});
 			})
 			.then(() => {
