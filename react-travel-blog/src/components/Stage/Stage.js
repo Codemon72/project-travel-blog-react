@@ -1,5 +1,6 @@
 import React from "react";
 import headerLogo from "../../assets/img/welt.png";
+import { Link } from "react-router-dom";
 
 const Stage = () => {
 	return (
@@ -28,6 +29,9 @@ const Stage = () => {
 						<br />
 						Have fun...
 					</div>
+					<Link to="/details">
+						<button>Go to Details</button>
+					</Link>
 				</div>
 			</div>
 		</header>

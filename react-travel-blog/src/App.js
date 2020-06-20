@@ -7,6 +7,7 @@ import Main from "./components/Main/Main.js";
 import Stage from "./components/Stage/Stage";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import Details from "./components/Details";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import AppContext from "./AppContext";
 
@@ -49,14 +50,16 @@ function App() {
 		<Router>
 			<div className="App">
 				<Menu />
-				<Route path="/" exact>
-					<Stage />
-					<AppContext.Provider
-						value={{ places, setPlaces, selected, setSelected, getUrlObject }}
-					>
+				<AppContext.Provider
+					value={{ places, setPlaces, selected, setSelected, getUrlObject }}
+				>
+					<Route path="/" exact>
+						<Stage />
 						<Main />
-					</AppContext.Provider>
-				</Route>
+					</Route>
+					<Route path="/details" component={Details} />
+				</AppContext.Provider>
+
 				<Route path="/contact" component={Contact} />
 				<Footer />
 			</div>
