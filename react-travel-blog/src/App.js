@@ -24,10 +24,10 @@ function App() {
 		array.sort((a, b) => {
 			return b.last_visited - a.last_visited;
 		});
-  };
-  
-  const beautifyDate = (num) => {
-		const str = num.toString()
+	};
+
+	const beautifyDate = (num) => {
+		const str = num.toString();
 		return `${str.substr(0, 4)} / ${str.substr(4, 2)} / ${str.substr(6, 2)}`;
 	};
 
@@ -38,9 +38,9 @@ function App() {
 			.get()
 			.then((posts) => {
 				posts.forEach((post) => {
-          const json = post.data();
-          json.id = post.id;
-          placesfromDB.push(json);
+					const json = post.data();
+					json.id = post.id;
+					placesfromDB.push(json);
 				});
 			})
 			.then(() => {
@@ -58,7 +58,14 @@ function App() {
 				<Menu />
 
 				<AppContext.Provider
-					value={{ places, setPlaces, selected, setSelected, getUrlObject }}
+					value={{
+						places,
+						setPlaces,
+						selected,
+						setSelected,
+						getUrlObject,
+						beautifyDate,
+					}}
 				>
 					<Route path="/" exact>
 						<Stage />
