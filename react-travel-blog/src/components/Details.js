@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import AppContext from "../AppContext";
 import { useParams } from "react-router-dom";
-import authorPic from "../assets/img/ich.png";
+import authorPic from "../assets/img/Christoph-avatar.png";
 import Map from "./Main/Map";
 
 const Details = () => {

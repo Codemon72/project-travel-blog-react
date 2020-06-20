@@ -18,7 +18,7 @@ const Preview = ({ place, selected, key }) => {
     <Link to={`/details/${place.id}`}>
 		<div
 			className={
-				"bloglist__card text-teal-900 " +
+				"bloglist__card text-teal-900" +
 				(selected &&
 					place.title === selected.title &&
 					" highlighting hoverEffect")
