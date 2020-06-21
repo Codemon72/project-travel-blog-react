@@ -24,34 +24,19 @@ const NewPostForm = () => {
 		title: "",
 	};
 	const [newBlogPost, setNewBlogPost] = useState(initialState);
-	const [name, setName] = useState("");
-	const [url, setUrl] = useState("");
+	const [uploadedImage, setUploadedImage] = useState(null);
 
 	useEffect(() => {
 		firebase.auth().onAuthStateChanged((user) => {
-			setName(user.displayName);
-			setUrl(user.photoURL);
-			// setNewBlogPost({ ...newBlogPost, date: new Date() });
-			// setUserName(user.displayName);
-			// setCreationDate(new Date());
-			// setNewBlogPost(initialState);
-			// setNewBlogPost({ ...newBlogPost, author: user.displayName });
+			setNewBlogPost({
+				...newBlogPost,
+				author: user.displayName,
+				author_image: user.photoURL,
+				date: new Date(),
+			});
 		});
 	}, []);
 
-	// useEffect(() => {
-	// 	firebase.auth().onAuthStateChanged((user) => {
-	// 		// setName(user.displayName);
-	// 		// setUrl(user.photoURL);
-	// 		// setNewBlogPost({ ...newBlogPost, date: new Date() });
-	// 		// setUserName(user.displayName);
-	// 		// setCreationDate(new Date());
-	// 		// setNewBlogPost(initialState);
-
-	// 		setNewBlogPost({ ...newBlogPost, author_image: user.photoURL });
-	// 	});
-	// }, []);
-	console.log(newBlogPost);
 	const changeTitle = (event) => {
 		const value = event.currentTarget.value;
 		setNewBlogPost({ ...newBlogPost, title: value });
@@ -99,17 +84,27 @@ const NewPostForm = () => {
 		setNewBlogPost({ ...newBlogPost, text: value });
 	};
 
-	// const changeImage = (event) => {
-	// 	const value = event.currentTarget.value;
-	// 	setNewBlogEntry({ ...newBlogEntry, image: value });
-	// };
+	const changeImage = (event) => {
+		const value = event.currentTarget.files[0];
+		setNewBlogPost({
+			...newBlogPost,
+			image: { ...newBlogPost.image, src: value.name },
+		});
+		setUploadedImage(value);
+	};
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		const db = firebase.firestore();
+		const storageRef = firebase.storage().ref();
+		const metadata = { contentType: uploadedImage.file };
+
 		db.collection("blogPosts")
 			.add(newBlogPost)
 			.then((docRef) => {
+				storageRef
+					.child("blogPics/" + uploadedImage.name)
+					.put(uploadedImage, metadata);
 				console.log("Document written with ID: ", docRef.id);
 			})
 			.catch((error) => {
@@ -235,7 +230,7 @@ const NewPostForm = () => {
 								required
 							/>
 						</div>
-						{/* <div className="w-full px-3 mb-6 md:mb-0">
+						<div className="w-full px-3 mb-6 md:mb-0">
 							<label
 								className="block uppercase tracking-wide text-teal-800 text-md font-bold mb-2"
 								htmlFor="upload"
@@ -243,12 +238,13 @@ const NewPostForm = () => {
 								Picture Upload:
 							</label>
 							<input
+								onChange={changeImage}
 								className="appearance-none block w-full bg-white border rounded py-3 px-4 md:mb-8 leading-tight focus:outline-none focus:bg-white"
 								name="uploadBtn"
 								type="file"
 								required
 							/>
-						</div> */}
+						</div>
 						<div className="w-full px-3 mb-6 md:mb-0">
 							<label
 								className="block uppercase tracking-wide text-teal-800 text-md font-bold mb-2"
