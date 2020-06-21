@@ -37,7 +37,7 @@ The dashboard shows an overview of the all blog posts and a Google Map.
 - [x] If the login button is clicked, a login form is shown right below the login button under the menu bar.
 - [x] The User can login with her email and password.
 - [x] If successfully logged in, the login form disappears and instead of the login button a logout button is shown.
-- [ ] If logged in, there should be another button for adding a new blog post (icon + text: "New blog post") on the left of the logout button. It links to `/new`, where the logged-in user can add a new blog post.
+- [x] If logged in, there should be another button for adding a new blog post (icon + text: "New blog post") on the left of the logout button. It links to `/new`, where the logged-in user can add a new blog post.
 
 ### 4. World Map with Google Maps API
 
@@ -79,13 +79,13 @@ The dashboard shows an overview of the all blog posts and a Google Map.
 
 #### Blog Post Detail
 - [x] On clicking at the title or the image of the blog post preview, the blog post is opened at the detail page `/post/:id`.
-- [ ] A back button at the details page (position: top-left) links back to the dashboard.
+- [x] A back button at the details page (position: top-left) links back to the dashboard.
 - [x] The detail page shows the full blog post, with all information.
 
 **Content of a blog post**  
 A blog post should contain:
   - [x] title
-  - [ ] visiting date
+  - [x] visiting date
   - [x] authors name
   - [x] image
   - [x] text
@@ -147,7 +147,7 @@ You can choose any of these optional bonus tasks, in any order.
 ### Bonus 1: Map for Blog Post Detail Page
 
 - [x] On the Blog Post Detail page, place a map on the right side next to the blog post.
-- [ ] The map shows centered the location of the blog post.
+- [x] The map shows centered the location of the blog post.
 
 ### Bonus 2: Firebase Storage for images
 
