@@ -3,11 +3,13 @@ import "./assets/main.css";
 import "./firebase.config";
 import * as firebase from "firebase";
 import Menu from "./components/Menu/Menu";
-import Main from "./components/Main/Main.js";
 import Stage from "./components/Stage/Stage";
+import Main from "./components/Main/Main.js";
+import NewPostForm from "./components/NewPostForm";
+import Details from "./components/Details";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import Details from "./components/Details";
+
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import AppContext from "./AppContext";
 
@@ -65,15 +67,16 @@ function App() {
 						selected,
 						setSelected,
 						getUrlObject,
-						beautifyDate
+						beautifyDate,
 					}}
-
 				>
 					<Route path="/" exact>
 						<Stage />
 						<Main />
 					</Route>
-
+					<Route path="/new" exact>
+						<NewPostForm />
+					</Route>
 					<Route exact path="/details/:id">
 						<div>{places.length > 0 && <Details />}</div>
 					</Route>
