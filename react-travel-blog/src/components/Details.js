@@ -5,7 +5,7 @@ import Marker from "./Main/Marker";
 import { useParams, Link } from "react-router-dom";
 import authorPic from "../assets/img/Christoph-avatar.png";
 import goBackbutton from "../assets/img/linker-pfeil_weiß.png";
-let counter = 0;
+
 
 const Details = () => {
 	const [imageUrl, setImageUrl] = useState(null);
@@ -23,12 +23,6 @@ const Details = () => {
 			setImageUrl(url);
 		});
 	}
-	
-	const renderCounter = () => {
-		counter++
-		console.log(counter, detailEntry.geo_data);
-	}
-	renderCounter()
 
 	return (
 		<div>
