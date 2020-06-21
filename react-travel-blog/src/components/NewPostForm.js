@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import sampleUser from "../assets/img/sample.png";
+import firebase from "firebase";
 
 const NewPostForm = () => {
 	const initialState = {
@@ -10,10 +11,10 @@ const NewPostForm = () => {
 			lat: "",
 			lng: "",
 		},
-		// image: {
-		// 	alt: "",
-		// 	src: "",
-		// },
+		image: {
+			alt: "",
+			src: "",
+		},
 		last_visited: "",
 		location: {
 			city: "",
@@ -23,6 +24,18 @@ const NewPostForm = () => {
 		title: "",
 	};
 	const [newBlogPost, setNewBlogPost] = useState(initialState);
+	const [uploadedImage, setUploadedImage] = useState(null);
+
+	useEffect(() => {
+		firebase.auth().onAuthStateChanged((user) => {
+			setNewBlogPost({
+				...newBlogPost,
+				author: user.displayName,
+				author_image: user.photoURL,
+				date: new Date(),
+			});
+		});
+	}, []);
 
 	const changeTitle = (event) => {
 		const value = event.currentTarget.value;
@@ -61,20 +74,42 @@ const NewPostForm = () => {
 		});
 	};
 
+	const changeVisited = (event) => {
+		const value = event.currentTarget.value;
+		setNewBlogPost({ ...newBlogPost, last_visited: value });
+	};
+
 	const changeText = (event) => {
 		const value = event.currentTarget.value;
 		setNewBlogPost({ ...newBlogPost, text: value });
 	};
 
-	// const changeImage = (event) => {
-	// 	const value = event.currentTarget.value;
-	// 	setNewBlogEntry({ ...newBlogEntry, image: value });
-	// };
+	const changeImage = (event) => {
+		const value = event.currentTarget.files[0];
+		setNewBlogPost({
+			...newBlogPost,
+			image: { ...newBlogPost.image, src: value.name },
+		});
+		setUploadedImage(value);
+	};
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		console.log(newBlogPost);
-		// addBlogEntry({ ...newBlogPost, date: Date.now() });
+		const db = firebase.firestore();
+		const storageRef = firebase.storage().ref();
+		const metadata = { contentType: uploadedImage.file };
+
+		db.collection("blogPosts")
+			.add(newBlogPost)
+			.then((docRef) => {
+				storageRef
+					.child("blogPics/" + uploadedImage.name)
+					.put(uploadedImage, metadata);
+				console.log("Document written with ID: ", docRef.id);
+			})
+			.catch((error) => {
+				console.error("Error adding document: ", error);
+			});
 		setNewBlogPost(initialState);
 	};
 
@@ -177,23 +212,39 @@ const NewPostForm = () => {
 								required
 							/>
 						</div>
-						{/* <div className="w-full px-3 mb-6 md:mb-0">
-					<label
-						className="block uppercase tracking-wide text-teal-800 text-md font-bold mb-2"
-						htmlFor="upload"
-					>
-						Picture Upload:
-					</label>
-					<input
-						className="appearance-none block w-full bg-white border rounded py-3 px-4 md:mb-8 leading-tight focus:outline-none focus:bg-white"
-						id="uploadBtn"
-						name="uploadBtn"
-						type="file"
-						value={newBlogEntry.title}
-						onChange={changeTitle}
-						required
-					/>
-				</div> */}
+						<div className="w-full px-3 mb-6 md:mb-0">
+							<label
+								className="block uppercase tracking-wide text-teal-800 text-md font-bold mb-2"
+								htmlFor="lastVisited"
+							>
+								Last Visited:
+							</label>
+							<input
+								className="appearance-none block w-full bg-white text-gray-700 border rounded py-3 px-4 md:mb-8 leading-tight focus:outline-none focus:bg-white"
+								id="lastVisited"
+								name="lastVisited"
+								type="text"
+								placeholder="Enter your last visiting Date (Format: 20201102)"
+								value={newBlogPost.last_visited}
+								onChange={changeVisited}
+								required
+							/>
+						</div>
+						<div className="w-full px-3 mb-6 md:mb-0">
+							<label
+								className="block uppercase tracking-wide text-teal-800 text-md font-bold mb-2"
+								htmlFor="upload"
+							>
+								Picture Upload:
+							</label>
+							<input
+								onChange={changeImage}
+								className="appearance-none block w-full bg-white border rounded py-3 px-4 md:mb-8 leading-tight focus:outline-none focus:bg-white"
+								name="uploadBtn"
+								type="file"
+								required
+							/>
+						</div>
 						<div className="w-full px-3 mb-6 md:mb-0">
 							<label
 								className="block uppercase tracking-wide text-teal-800 text-md font-bold mb-2"
@@ -228,10 +279,12 @@ const NewPostForm = () => {
 						/>
 						<div className="px-6 py-4">
 							<div className="amatic font-bold text-4xl mb-2">
-								{newBlogPost.title}
+								{newBlogPost.title ? newBlogPost.title : "Dein Titel"}
 							</div>
 							<p className=" block text-gray-700 text-base">
-								{newBlogPost.text}
+								{newBlogPost.text
+									? newBlogPost.text
+									: "Hoodie tilde flexitarian wolf, glossier mixtape 90's schlitz prism letterpress cold-pressed church-key pop-up readymade swag. Vinyl lo-fi cold-pressed banjo swag."}
 							</p>
 						</div>
 						<div className="px-6 py-4 flex items-center">
@@ -245,8 +298,17 @@ const NewPostForm = () => {
 									{newBlogPost.author}
 								</p>
 								<p className="text-gray-600">
-									{newBlogPost.last_visited} in {newBlogPost.location.city},{" "}
-									{newBlogPost.location.country}
+									{newBlogPost.last_visited
+										? newBlogPost.last_visited
+										: "2020 / 06"}{" "}
+									in{" "}
+									{newBlogPost.location.city
+										? newBlogPost.location.city
+										: "Teststadt"}
+									,{" "}
+									{newBlogPost.location.country
+										? newBlogPost.location.country
+										: "Deinland"}
 								</p>
 							</div>
 						</div>

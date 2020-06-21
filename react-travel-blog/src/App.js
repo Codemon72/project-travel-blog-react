@@ -42,7 +42,8 @@ function App() {
 			.then((posts) => {
 				posts.forEach((post) => {
 					const json = post.data();
-          json.id = post.id;
+					json.id = post.id;
+
 					placesfromDB.push(json);
 				});
 			})
