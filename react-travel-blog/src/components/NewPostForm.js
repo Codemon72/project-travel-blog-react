@@ -279,10 +279,12 @@ const NewPostForm = () => {
 						/>
 						<div className="px-6 py-4">
 							<div className="amatic font-bold text-4xl mb-2">
-								{newBlogPost.title}
+								{newBlogPost.title ? newBlogPost.title : "Dein Titel"}
 							</div>
 							<p className=" block text-gray-700 text-base">
-								{newBlogPost.text}
+								{newBlogPost.text
+									? newBlogPost.text
+									: "Hoodie tilde flexitarian wolf, glossier mixtape 90's schlitz prism letterpress cold-pressed church-key pop-up readymade swag. Vinyl lo-fi cold-pressed banjo swag."}
 							</p>
 						</div>
 						<div className="px-6 py-4 flex items-center">
@@ -296,8 +298,17 @@ const NewPostForm = () => {
 									{newBlogPost.author}
 								</p>
 								<p className="text-gray-600">
-									{newBlogPost.last_visited} in {newBlogPost.location.city},{" "}
-									{newBlogPost.location.country}
+									{newBlogPost.last_visited
+										? newBlogPost.last_visited
+										: "2020 / 06"}{" "}
+									in{" "}
+									{newBlogPost.location.city
+										? newBlogPost.location.city
+										: "Teststadt"}
+									,{" "}
+									{newBlogPost.location.country
+										? newBlogPost.location.country
+										: "Deinland"}
 								</p>
 							</div>
 						</div>
