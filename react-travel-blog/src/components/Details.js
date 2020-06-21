@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import GoogleMapReact from "google-map-react";
 import AppContext from "../AppContext";
+import Marker from "./Main/Marker";
 import { useParams, Link } from "react-router-dom";
 import authorPic from "../assets/img/Christoph-avatar.png";
 import goBackbutton from "../assets/img/linker-pfeil_weiß.png";
@@ -67,35 +68,20 @@ const Details = () => {
 							</div>
 						</div>
 					</div>
-					<GoogleMapReact
-						distanceToMouse={()=>{}}
-						bootstrapURLKeys={keyConfig}
-						center={detailEntry.geo_data}
-						zoom={4}
-					>
-						
-						{/* {places.map((place) => {
-							return (
-								<Marker
-									key={place.id}
-									lat={place.geo_data.lat}
-									lng={place.geo_data.lng}
-									place={place}
-									showInfo={() => handleShowInfoWindow(place)}
-								/>
-							);
-						})}
-
-						{selected && (
-							<InfoWindow
-								lat={selected.geo_data.lat}
-								lng={selected.geo_data.lng}
-								place={selected}
-								closeInfo={handleCloseInfoWindow}
+					<div className="w-full lg:w-1/2 border-4 border-white rounded shadow-xl detail-map" style={{ height: "70vh" }}>
+						<GoogleMapReact
+							distanceToMouse={()=>{}}
+							bootstrapURLKeys={keyConfig}
+							center={detailEntry.geo_data ? detailEntry.geo_data : {lat: 37.794594, lng: -25.506134}}
+							zoom={8}
+						>
+							<Marker
+								lat={detailEntry.geo_data.lat}
+								lng={detailEntry.geo_data.lng}
+								place={detailEntry}
 							/>
-						)} */}
-
-					</GoogleMapReact>
+						</GoogleMapReact>
+					</div>
 				</div>
 			)}
 		</div>
