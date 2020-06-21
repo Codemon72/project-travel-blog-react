@@ -82,17 +82,20 @@ const Menu = () => {
 						<div className="flex items-center">
 							<img
 								className="w-12 h-12 md:w-14 md:h-14 border border-teal-900 border-4 rounded-full"
-								src={userPhoto}
+								src={userPhoto ? userPhoto : ""}
 								alt="Avatar of the current user"
 							/>
 							<div
 								id="current-user"
 								className="text-sm px-4 lg:mr-2 py-2 leading-none text-white font-bold text-2xl"
 							>
-								Hi, {user.displayName}
+								Hi, {user.displayName ? user.displayName : "Reisender"}
 							</div>
 
-							<a className="text-sm cursor-pointer px-2 mr-2 py-2 border rounded text-white border-white hover:border-transparent hover:text-teal-600 hover:bg-white">
+							<Link
+								to="/new"
+								className="text-sm cursor-pointer px-2 mr-2 py-2 border rounded text-white border-white hover:border-transparent hover:text-teal-600 hover:bg-white"
+							>
 								<img
 									className="w-4 h-4 mx-2 inline"
 									src={addImage}
@@ -102,7 +105,7 @@ const Menu = () => {
 								<div className="inline">
 									Add <span className="font-bold uppercase">new</span> post
 								</div>
-							</a>
+							</Link>
 						</div>
 						<Logout
 							logOut={handleLogOut}
