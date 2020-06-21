@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import sampleUser from "../assets/img/sample.png";
+import firebase from "firebase";
 
 const NewPostForm = () => {
 	const initialState = {
@@ -10,10 +11,10 @@ const NewPostForm = () => {
 			lat: "",
 			lng: "",
 		},
-		// image: {
-		// 	alt: "",
-		// 	src: "",
-		// },
+		image: {
+			alt: "",
+			src: "",
+		},
 		last_visited: "",
 		location: {
 			city: "",
@@ -23,7 +24,34 @@ const NewPostForm = () => {
 		title: "",
 	};
 	const [newBlogPost, setNewBlogPost] = useState(initialState);
+	const [name, setName] = useState("");
+	const [url, setUrl] = useState("");
 
+	useEffect(() => {
+		firebase.auth().onAuthStateChanged((user) => {
+			setName(user.displayName);
+			setUrl(user.photoURL);
+			// setNewBlogPost({ ...newBlogPost, date: new Date() });
+			// setUserName(user.displayName);
+			// setCreationDate(new Date());
+			// setNewBlogPost(initialState);
+			// setNewBlogPost({ ...newBlogPost, author: user.displayName });
+		});
+	}, []);
+
+	// useEffect(() => {
+	// 	firebase.auth().onAuthStateChanged((user) => {
+	// 		// setName(user.displayName);
+	// 		// setUrl(user.photoURL);
+	// 		// setNewBlogPost({ ...newBlogPost, date: new Date() });
+	// 		// setUserName(user.displayName);
+	// 		// setCreationDate(new Date());
+	// 		// setNewBlogPost(initialState);
+
+	// 		setNewBlogPost({ ...newBlogPost, author_image: user.photoURL });
+	// 	});
+	// }, []);
+	console.log(newBlogPost);
 	const changeTitle = (event) => {
 		const value = event.currentTarget.value;
 		setNewBlogPost({ ...newBlogPost, title: value });
@@ -61,6 +89,11 @@ const NewPostForm = () => {
 		});
 	};
 
+	const changeVisited = (event) => {
+		const value = event.currentTarget.value;
+		setNewBlogPost({ ...newBlogPost, last_visited: value });
+	};
+
 	const changeText = (event) => {
 		const value = event.currentTarget.value;
 		setNewBlogPost({ ...newBlogPost, text: value });
@@ -73,8 +106,15 @@ const NewPostForm = () => {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		console.log(newBlogPost);
-		// addBlogEntry({ ...newBlogPost, date: Date.now() });
+		const db = firebase.firestore();
+		db.collection("blogPosts")
+			.add(newBlogPost)
+			.then((docRef) => {
+				console.log("Document written with ID: ", docRef.id);
+			})
+			.catch((error) => {
+				console.error("Error adding document: ", error);
+			});
 		setNewBlogPost(initialState);
 	};
 
@@ -177,23 +217,38 @@ const NewPostForm = () => {
 								required
 							/>
 						</div>
+						<div className="w-full px-3 mb-6 md:mb-0">
+							<label
+								className="block uppercase tracking-wide text-teal-800 text-md font-bold mb-2"
+								htmlFor="lastVisited"
+							>
+								Last Visited:
+							</label>
+							<input
+								className="appearance-none block w-full bg-white text-gray-700 border rounded py-3 px-4 md:mb-8 leading-tight focus:outline-none focus:bg-white"
+								id="lastVisited"
+								name="lastVisited"
+								type="text"
+								placeholder="Enter your last visiting Date (Format: 20201102)"
+								value={newBlogPost.last_visited}
+								onChange={changeVisited}
+								required
+							/>
+						</div>
 						{/* <div className="w-full px-3 mb-6 md:mb-0">
-					<label
-						className="block uppercase tracking-wide text-teal-800 text-md font-bold mb-2"
-						htmlFor="upload"
-					>
-						Picture Upload:
-					</label>
-					<input
-						className="appearance-none block w-full bg-white border rounded py-3 px-4 md:mb-8 leading-tight focus:outline-none focus:bg-white"
-						id="uploadBtn"
-						name="uploadBtn"
-						type="file"
-						value={newBlogEntry.title}
-						onChange={changeTitle}
-						required
-					/>
-				</div> */}
+							<label
+								className="block uppercase tracking-wide text-teal-800 text-md font-bold mb-2"
+								htmlFor="upload"
+							>
+								Picture Upload:
+							</label>
+							<input
+								className="appearance-none block w-full bg-white border rounded py-3 px-4 md:mb-8 leading-tight focus:outline-none focus:bg-white"
+								name="uploadBtn"
+								type="file"
+								required
+							/>
+						</div> */}
 						<div className="w-full px-3 mb-6 md:mb-0">
 							<label
 								className="block uppercase tracking-wide text-teal-800 text-md font-bold mb-2"
