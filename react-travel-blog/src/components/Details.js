@@ -7,7 +7,7 @@ import Map from "./Main/Map";
 
 const Details = () => {
 	const [imageUrl, setImageUrl] = useState(null);
-	const { getUrlObject, places } = useContext(AppContext);
+	const { getUrlObject, places, beautifyDate } = useContext(AppContext);
 	const [detailEntry, setDetailEntry] = useState("");
 	const { id } = useParams();
 
@@ -54,7 +54,7 @@ const Details = () => {
 									{detailEntry.author}
 								</p>
 								<p className="text-gray-600">
-									{detailEntry.last_visited} in {detailEntry.location.city},{" "}
+									{beautifyDate(detailEntry.last_visited)} in {detailEntry.location.city},{" "}
 									{detailEntry.location.country}
 								</p>
 							</div>
