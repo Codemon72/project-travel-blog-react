@@ -1,13 +1,14 @@
 import React, { useState, useContext, useEffect } from "react";
+import GoogleMapReact from "google-map-react";
 import AppContext from "../AppContext";
 import { useParams, Link } from "react-router-dom";
 import authorPic from "../assets/img/Christoph-avatar.png";
 import goBackbutton from "../assets/img/linker-pfeil_weiß.png";
-import Map from "./Main/Map";
+let counter = 0;
 
 const Details = () => {
 	const [imageUrl, setImageUrl] = useState(null);
-	const { getUrlObject, places, beautifyDate } = useContext(AppContext);
+	const { getUrlObject, places, beautifyDate, keyConfig } = useContext(AppContext);
 	const [detailEntry, setDetailEntry] = useState("");
 	const { id } = useParams();
 
@@ -21,6 +22,12 @@ const Details = () => {
 			setImageUrl(url);
 		});
 	}
+	
+	const renderCounter = () => {
+		counter++
+		console.log(counter, detailEntry.geo_data);
+	}
+	renderCounter()
 
 	return (
 		<div>
@@ -60,7 +67,35 @@ const Details = () => {
 							</div>
 						</div>
 					</div>
-					<Map></Map>
+					<GoogleMapReact
+						distanceToMouse={()=>{}}
+						bootstrapURLKeys={keyConfig}
+						center={detailEntry.geo_data}
+						zoom={4}
+					>
+						
+						{/* {places.map((place) => {
+							return (
+								<Marker
+									key={place.id}
+									lat={place.geo_data.lat}
+									lng={place.geo_data.lng}
+									place={place}
+									showInfo={() => handleShowInfoWindow(place)}
+								/>
+							);
+						})}
+
+						{selected && (
+							<InfoWindow
+								lat={selected.geo_data.lat}
+								lng={selected.geo_data.lng}
+								place={selected}
+								closeInfo={handleCloseInfoWindow}
+							/>
+						)} */}
+
+					</GoogleMapReact>
 				</div>
 			)}
 		</div>

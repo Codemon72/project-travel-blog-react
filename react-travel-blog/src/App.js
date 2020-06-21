@@ -13,7 +13,8 @@ import AppContext from "./AppContext";
 
 function App() {
 	const [places, setPlaces] = useState([]);
-	const [selected, setSelected] = useState(null);
+  const [selected, setSelected] = useState(null);
+  const keyConfig = { key: "" };
 
 	const getUrlObject = (fileName) => {
 		const imageRef = firebase.storage().ref().child(`blogPics/${fileName}`);
@@ -40,7 +41,6 @@ function App() {
 				posts.forEach((post) => {
 					const json = post.data();
           json.id = post.id;
-          console.log(json);
 					placesfromDB.push(json);
 				});
 			})
@@ -65,7 +65,8 @@ function App() {
 						selected,
 						setSelected,
 						getUrlObject,
-						beautifyDate
+            beautifyDate,
+            keyConfig
 					}}
 
 				>
