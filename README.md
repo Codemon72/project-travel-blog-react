@@ -32,13 +32,6 @@ The dashboard shows an overview of the all blog posts and a Google Map.
 > **Icon Resources:** We recommend you use [FontAwesome](https://fontawesome.com/) for your icons.
 
 
-### now Bonus: 3. Authentication / Login
-- [x] Use Firebase Auth (login with email and password) for authentication.
-- [x] If the login button is clicked, a login form is shown right below the login button under the menu bar.
-- [x] The User can login with her email and password.
-- [x] If successfully logged in, the login form disappears and instead of the login button a logout button is shown.
-- [ ] If logged in, there should be another button for adding a new blog post (icon + text: "New blog post") on the left of the logout button. It links to `/new`, where the logged-in user can add a new blog post.
-
 ### 4. World Map with Google Maps API
 
 - [x] Use the [google-map-react](https://github.com/google-map-react/google-map-react) library to display a world map.
@@ -58,13 +51,6 @@ The dashboard shows an overview of the all blog posts and a Google Map.
 
 ### 5. Blog Posts
 
-#### now Bonus: Get Blog Posts from Firestore
-
-- [x] Store the blog posts on Firebase Firestore and load them with the Firebase API.
-- [x] Also save the coordinates of a location with latitude and longitude.
-- [x] Load all blog posts on the dashboard (main) page.
-- [x] The blog post previews should be visible on the left, right beside the map.
-
 #### Blog Post Previews
 
 - [x] On the left all blog posts are listed as previews (similar to the Micro Blog from JavaScript for Web).
@@ -79,17 +65,29 @@ The dashboard shows an overview of the all blog posts and a Google Map.
 
 #### Blog Post Detail
 - [x] On clicking at the title or the image of the blog post preview, the blog post is opened at the detail page `/post/:id`.
-- [ ] A back button at the details page (position: top-left) links back to the dashboard.
+- [x] A back button at the details page (position: top-left) links back to the dashboard.
 - [x] The detail page shows the full blog post, with all information.
 
 **Content of a blog post**  
 A blog post should contain:
   - [x] title
-  - [ ] visiting date
+  - [x] visiting date
   - [x] authors name
   - [x] image
   - [x] text
   - [x] location with city and country
+
+### 7. Imprint / Contact
+
+- [x] Create a link `/contact` in the menu bar named "Contact".
+- [x] On the contact page place your (and your team mate's) name.
+- [x] Write two sentences about your project.
+- [x] Put your (or if you prefer [Hamburg Coding School's](https://hamburgcodingschool.com/contact/)) contact details:
+  - [x] name
+  - [x] address
+  - [x] email
+  - [x] phone number
+- [x] Write a note that this was a project from a course at Hamburg Coding School.
 
 
 ### now Bonus: 6. New Blog Post
@@ -126,19 +124,19 @@ A blog post should contain:
   For instance: The image `barcelona.jpg` saved under `public/images` can be linked in the templates with `"/images/barcelona.jpg"`.
 - [ ] Only signed in user can add new blog posts.
 
+#### now Bonus 7: Get Blog Posts from Firestore
 
-### 7. Imprint / Contact
+- [x] Store the blog posts on Firebase Firestore and load them with the Firebase API.
+- [x] Also save the coordinates of a location with latitude and longitude.
+- [x] Load all blog posts on the dashboard (main) page.
+- [x] The blog post previews should be visible on the left, right beside the map.
 
-- [x] Create a link `/contact` in the menu bar named "Contact".
-- [x] On the contact page place your (and your team mate's) name.
-- [x] Write two sentences about your project.
-- [x] Put your (or if you prefer [Hamburg Coding School's](https://hamburgcodingschool.com/contact/)) contact details:
-  - [x] name
-  - [x] address
-  - [x] email
-  - [x] phone number
-- [x] Write a note that this was a project from a course at Hamburg Coding School.
-
+### now Bonus: 8. Authentication / Login
+- [x] Use Firebase Auth (login with email and password) for authentication.
+- [x] If the login button is clicked, a login form is shown right below the login button under the menu bar.
+- [x] The User can login with her email and password.
+- [x] If successfully logged in, the login form disappears and instead of the login button a logout button is shown.
+- [x] If logged in, there should be another button for adding a new blog post (icon + text: "New blog post") on the left of the logout button. It links to `/new`, where the logged-in user can add a new blog post.
 
 ## Optional Bonus Tasks
 
@@ -147,7 +145,7 @@ You can choose any of these optional bonus tasks, in any order.
 ### Bonus 1: Map for Blog Post Detail Page
 
 - [x] On the Blog Post Detail page, place a map on the right side next to the blog post.
-- [ ] The map shows centered the location of the blog post.
+- [x] The map shows centered the location of the blog post.
 
 ### Bonus 2: Firebase Storage for images
 

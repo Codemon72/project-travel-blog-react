@@ -6,8 +6,7 @@ import AppContext from "../../AppContext";
 
 
 const Map = () => {
-  const {places, selected, setSelected} = useContext(AppContext)
-  const keyConfig = { key: "" };
+  const {places, selected, setSelected, keyConfig} = useContext(AppContext)
 
   const initialMapSettings = {
     geo_data: {lat: 37.794594, lng: -25.506134},
