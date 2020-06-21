@@ -71,8 +71,9 @@ const Menu = () => {
 				{!user && (
 					<button
 						onClick={toggleLoginForm}
-						className="cursor-pointer inline-block text-sm px-4 lg:mr-2 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-600 hover:bg-white"
+						className="flex items-center cursor-pointer inline-block text-sm px-4 lg:mr-2 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-600 hover:bg-white"
 					>
+						<i className="fas fa-sign-in-alt pr-2"></i>
 						<p>Login</p>
 					</button>
 				)}

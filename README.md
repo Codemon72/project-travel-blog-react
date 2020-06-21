@@ -20,7 +20,7 @@ While working on the project remind yourself of *"thinking in components"*, – 
 ### 1. Dashboard (Main Page)
 
 The dashboard shows an overview of the all blog posts and a Google Map.
-- [ ] Left: Blog Post preview cards
+- [x] Left: Blog Post preview cards
 - [x] Right: Google Map with markers at the positions of the blog posts
 
 
@@ -52,7 +52,7 @@ The dashboard shows an overview of the all blog posts and a Google Map.
   - [x] title
   - [x] visiting date
   - [x] authors image and name (can be hardcoded)
-  - [ ] Place a link, which links to the detail page: `/post/:id`
+  - [x] Place a link, which links to the detail page: `/post/:id`
   - [x] The InfoWindow can be closed by clicking on the "x" (which is placed at right-top in the InfoWindow
 
 
@@ -69,27 +69,27 @@ The dashboard shows an overview of the all blog posts and a Google Map.
 
 - [x] On the left all blog posts are listed as previews (similar to the Micro Blog from JavaScript for Web).
 - [x] The blogs are ordered ascending by visiting date.
-- [ ] Each preview contains:
+- [x] Each preview contains:
   - [x] title
-  - [ ] visiting date
-  - [ ] authors image + name (can be hardcoded)
+  - [x] visiting date
+  - [x] authors image + name (can be hardcoded)
   - [x] image
-  - [ ] When user clicks on one of the listed blog post than she gets linked to the detail page `/post/:id`
+  - [x] When user clicks on one of the listed blog post than she gets linked to the detail page `/post/:id`
 
 
 #### Blog Post Detail
-- [ ] On clicking at the title or the image of the blog post preview, the blog post is opened at the detail page `/post/:id`.
+- [x] On clicking at the title or the image of the blog post preview, the blog post is opened at the detail page `/post/:id`.
 - [ ] A back button at the details page (position: top-left) links back to the dashboard.
-- [ ] The detail page shows the full blog post, with all information.
+- [x] The detail page shows the full blog post, with all information.
 
 **Content of a blog post**  
 A blog post should contain:
-  - [ ] title
+  - [x] title
   - [ ] visiting date
-  - [ ] authors name
-  - [ ] image
-  - [ ] text
-  - [ ] location with city and country
+  - [x] authors name
+  - [x] image
+  - [x] text
+  - [x] location with city and country
 
 
 ### now Bonus: 6. New Blog Post
@@ -146,15 +146,15 @@ You can choose any of these optional bonus tasks, in any order.
 
 ### Bonus 1: Map for Blog Post Detail Page
 
-- [ ] On the Blog Post Detail page, place a map on the right side next to the blog post.
+- [x] On the Blog Post Detail page, place a map on the right side next to the blog post.
 - [ ] The map shows centered the location of the blog post.
 
 ### Bonus 2: Firebase Storage for images
 
-- [ ] Include the Storage API from Firebase.
+- [x] Include the Storage API from Firebase.
 - [ ] Research how to upload and download pictures with Firebase Storage.
 - [ ] Upload your blog post's images to Storage.
-- [ ] Load the images from Storage when displaying the blog posts.
+- [x] Load the images from Storage when displaying the blog posts.
 - [ ] In the form for creating a new blog post, add an option to upload an image for the blog post to Storage.
 
 ### Bonus 3: Edit Blog Posts
