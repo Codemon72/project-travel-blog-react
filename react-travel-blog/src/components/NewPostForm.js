@@ -31,23 +31,25 @@ const NewPostForm = () => {
 
 	const changeCity = (event) => {
 		const value = event.currentTarget.value;
-		// setNewBlogPost({
-		// 	...newBlogPost,
-		// 	location: { ...newBlogPost.location.city },
-		// });
+		setNewBlogPost({
+			...newBlogPost,
+			location: { ...newBlogPost.location, city: value },
+		});
 	};
 
 	const changeCountry = (event) => {
 		const value = event.currentTarget.value;
-		setNewBlogPost({ ...newBlogPost, location: { country: value } });
+		setNewBlogPost({
+			...newBlogPost,
+			location: { ...newBlogPost.location, country: value },
+		});
 	};
 
 	const changeLat = (event) => {
 		const value = event.currentTarget.value;
 		setNewBlogPost({
 			...newBlogPost,
-			geo_data: { ...newBlogPost.geo_data.lat },
-			lat: value,
+			geo_data: { ...newBlogPost.geo_data, lat: value },
 		});
 	};
 
@@ -55,8 +57,7 @@ const NewPostForm = () => {
 		const value = event.currentTarget.value;
 		setNewBlogPost({
 			...newBlogPost,
-			geo_data: { ...newBlogPost.geo_data.lng },
-			lng: value,
+			geo_data: { ...newBlogPost.geo_data, lng: value },
 		});
 	};
 
