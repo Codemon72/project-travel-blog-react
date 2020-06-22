@@ -3,7 +3,9 @@ import GoogleMapReact from "google-map-react";
 import AppContext from "../AppContext";
 import Marker from "./Main/Marker";
 import { useParams, Link } from "react-router-dom";
-import authorPic from "../assets/img/Christoph-avatar.png";
+import christoph from "../assets/img/Christoph-avatar.png";
+import clemens from "../assets/img/Clemens-avatar.JPG";
+import anonymous from "../assets/img/anonymous-avatar.png";
 import goBackbutton from "../assets/img/linker-pfeil_weiß.png";
 
 
@@ -51,7 +53,13 @@ const Details = () => {
 						<div className="px-6 py-4 flex items-center">
 							<img
 								className="w-10 h-10 rounded-full mr-4"
-								src={authorPic}
+								src={
+									detailEntry.author === "Christoph Pöllmann"
+										? christoph
+										: detailEntry.author === "Clemens Bruesch"
+										? clemens
+										: anonymous
+								}
 								alt="Profil picture"
 							/>
 							<div className="text-sm">

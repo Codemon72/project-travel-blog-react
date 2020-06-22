@@ -43,7 +43,7 @@ function App() {
 				posts.forEach((post) => {
 					const json = post.data();
 					json.id = post.id;
-
+					console.log(json)
 					placesfromDB.push(json);
 				});
 			})
