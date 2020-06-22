@@ -1,7 +1,7 @@
 import React from "react";
-import marker from "../../assets/img/newmarker.png";
+import marker from "../../assets/img/marker_red.png";
 // import pin from "../../assets/img/pin.svg";
-import markerBlue from "../../assets/img/markerBlue.svg";
+import markerBlue from "../../assets/img/marker_blue.png";
 
 const Marker = (props) => {
 	return (
