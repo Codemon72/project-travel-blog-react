@@ -9,7 +9,7 @@ import goBackbutton from "../assets/img/linker-pfeil_weiß.png";
 
 const Details = () => {
 	const [imageUrl, setImageUrl] = useState(null);
-	const { getUrlObject, places, beautifyDate, keyConfig } = useContext(AppContext);
+	const { getUrlObject, places, beautifyDate, keyConfig, setSelected } = useContext(AppContext);
 	const [detailEntry, setDetailEntry] = useState("");
 	const { id } = useParams();
 
@@ -26,7 +26,10 @@ const Details = () => {
 
 	return (
 		<div>
-			<Link to="/" className="flex justify-center items-center">
+			<Link 
+				to="/" 
+				className="flex justify-center items-center"
+				onClick={() => setSelected(null)}>
 				<img className="w-8 h-8 mx-6 my-12 inline" src={goBackbutton} />
 				<div className="inline font-bold text-2xl amatic text-white ">
 					Travel back home ...
