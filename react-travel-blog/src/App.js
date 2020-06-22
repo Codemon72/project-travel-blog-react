@@ -79,7 +79,7 @@ function App() {
 					<Route path="/new" exact>
 						<NewPostForm />
 					</Route>
-					<Route exact path="/details/:id">
+					<Route exact path="/post/:id">
 						<div>{places.length > 0 && <Details />}</div>
 					</Route>
 				</AppContext.Provider>

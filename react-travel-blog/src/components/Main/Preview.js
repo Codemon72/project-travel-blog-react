@@ -16,7 +16,7 @@ const Preview = ({ place, selected, key }) => {
 
 	return (
 		<Link 
-			to={`/details/${place.id}`} 
+			to={`/post/${place.id}`} 
 			className={"bloglist__card-wrapper " + (selected && place.title === selected.title && " highlighting")}>
 		<div
 			className="bloglist__card text-teal-900">

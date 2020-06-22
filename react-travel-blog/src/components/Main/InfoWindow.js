@@ -26,7 +26,7 @@ const InfoWindow = ({ place, closeInfo }) => {
 					src={place.author === "Christoph Pöllmann" ? christoph : (place.author === "Clemens Bruesch" ? clemens : anonymous)} 
 					alt={place.author}/>
 			</p>
-			<Link to={`/details/${place.id}`} >
+			<Link to={`/post/${place.id}`} >
 			<button class="flex items-center mt-3 self-start bg-teal-500 hover:bg-teal-700 text-white font-bold py-1 px-2 border-none rounded">
 				View Details
 				<i className="fas fa-arrow-right ml-2"></i>
