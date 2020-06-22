@@ -15,8 +15,8 @@ import AppContext from "./AppContext";
 
 function App() {
 	const [places, setPlaces] = useState([]);
-  const [selected, setSelected] = useState(null);
-  const keyConfig = { key: "" };
+	const [selected, setSelected] = useState(null);
+	const keyConfig = { key: "" };
 
 	const getUrlObject = (fileName) => {
 		const imageRef = firebase.storage().ref().child(`blogPics/${fileName}`);
@@ -59,8 +59,6 @@ function App() {
 	return (
 		<Router>
 			<div className="App">
-				<Menu />
-
 				<AppContext.Provider
 					value={{
 						places,
@@ -68,10 +66,12 @@ function App() {
 						selected,
 						setSelected,
 						getUrlObject,
-            beautifyDate,
-            keyConfig
+						beautifyDate,
+						keyConfig,
 					}}
 				>
+					<Menu />
+
 					<Route path="/" exact>
 						<Stage />
 						<Main />

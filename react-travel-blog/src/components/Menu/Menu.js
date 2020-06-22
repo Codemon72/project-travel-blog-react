@@ -13,15 +13,18 @@ const Menu = () => {
 	const [showLogin, setShowLogin] = useState(false);
 
 	useEffect(() => {
-		//firebase.auth()
-		//.setPersistence(firebase.auth.Auth.Persistence.SESSION)
-		//.then(() => {
-		firebase.auth().onAuthStateChanged((userAuth) => {
-			setError(null);
-			setUser(userAuth);
-			setUserPhoto(userAuth.photoURL);
-		});
-		//})
+		firebase
+			.auth()
+			.setPersistence(firebase.auth.Auth.Persistence.SESSION)
+			.then(() => {
+				firebase.auth().onAuthStateChanged((userAuth) => {
+					setError(null);
+					setUser(userAuth);
+					{
+						userAuth ? setUserPhoto(userAuth.photoURL) : setUserPhoto(null);
+					}
+				});
+			});
 	}, []);
 
 	const handleLogIn = async ({ username, password }) => {
