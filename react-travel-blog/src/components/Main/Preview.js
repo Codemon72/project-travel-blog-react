@@ -10,12 +10,12 @@ const Preview = ({ place, selected, key }) => {
 	const [imageUrl, setImageUrl] = useState(null);
 	const { getUrlObject, beautifyDate } = useContext(AppContext);
 
-	getUrlObject(place.image.src).then((url) => {
-		setImageUrl(url);
-	});
+	// getUrlObject(place.image.src).then((url) => {
+	// 	setImageUrl(url);
+	// });
 
 	return (
-    <Link to={`/details/${place.id}`} className={selected && place.title === selected.title && " highlighting hoverEffect"}>
+    <Link to={`/details/${place.id}`} className={preview-wrapper}{selected && place.title === selected.title && " highlighting hoverEffect"}>
 		<div
 			className="bloglist__card text-teal-900">
 			<img className="block" src={imageUrl} alt={place.title} />
