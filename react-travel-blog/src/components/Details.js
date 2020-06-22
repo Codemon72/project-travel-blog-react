@@ -28,17 +28,17 @@ const Details = () => {
 		<div>
 			<Link 
 				to="/" 
-				className="flex justify-center items-center"
+				className="flex justify-start lg:justify-center items-center"
 				onClick={() => setSelected(null)}>
-				<img className="w-8 h-8 mx-6 my-12 inline" src={goBackbutton} />
+				<img className="w-8 h-8 mx-6 my-6 lg:my-12 inline" src={goBackbutton} />
 				<div className="inline font-bold text-2xl amatic text-white ">
 					Travel back home ...
 				</div>
 			</Link>
 
 			{detailEntry && (
-				<div className="flex lg:flex-row flex-col justify-center p-10 shadow-lg">
-					<div className="w-full relative container max-w-lg rounded border-4 border-white overflow-hidden justify-center bg-white">
+				<div className="detail__container">
+					<div className="detail__content">
 						<img className="w-full" src={imageUrl} />
 						<div className="px-6 py-4">
 							<div className="amatic font-bold text-4xl mb-2">
