@@ -70,7 +70,6 @@ function App() {
 			>
 				<Router>
 					<Menu />
-
 					<Route path="/" exact>
 						<Stage />
 						<Main />
@@ -81,7 +80,6 @@ function App() {
 					<Route exact path="/post/:id">
 						<div>{places.length > 0 && <Details />}</div>
 					</Route>
-
 					<Route path="/contact" component={Contact} />
 					<Footer />
 				</Router>
