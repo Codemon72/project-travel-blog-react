@@ -211,11 +211,13 @@ h2 {
   border-radius: 0 0 4px 4px;
   width: 100%;
   border: 4px #fff solid;
+  height: 70vh
 }
 @media only screen and (min-width: 1024px) {
   .detail_map {
     border-radius: 0 4px 4px 0;
     width: 50%;
+    height: auto;
   }
 }
 .detail_title {

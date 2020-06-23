@@ -83,7 +83,9 @@ const Details = () => {
 							</div>
 						</div>
 					</div>
-					<div className="detail_map" style={{ height: "70vh" }}>
+					<div className="detail_map" 
+					// style={{ height: "auto" }}
+					>
 						<GoogleMapReact
 							distanceToMouse={() => {}}
 							bootstrapURLKeys={keyConfig}
