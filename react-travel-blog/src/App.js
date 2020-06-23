@@ -56,19 +56,19 @@ function App() {
 	}, []);
 
 	return (
-		<Router>
-			<div className="App">
-				<AppContext.Provider
-					value={{
-						places,
-						setPlaces,
-						selected,
-						setSelected,
-						getUrlObject,
-						beautifyDate,
-						keyConfig,
-					}}
-				>
+		<div className="App">
+			<AppContext.Provider
+				value={{
+					places,
+					setPlaces,
+					selected,
+					setSelected,
+					getUrlObject,
+					beautifyDate,
+					keyConfig,
+				}}
+			>
+				<Router>
 					<Menu />
 
 					<Route path="/" exact>
@@ -81,12 +81,12 @@ function App() {
 					<Route exact path="/post/:id">
 						<div>{places.length > 0 && <Details />}</div>
 					</Route>
-				</AppContext.Provider>
 
-				<Route path="/contact" component={Contact} />
-				<Footer />
-			</div>
-		</Router>
+					<Route path="/contact" component={Contact} />
+					<Footer />
+				</Router>
+			</AppContext.Provider>
+		</div>
 	);
 }
 

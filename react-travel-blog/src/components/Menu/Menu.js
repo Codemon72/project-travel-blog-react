@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import contactLogo from "../../assets/img/contact-bubble.png";
 import addImage from "../../assets/img/hinzufuegen_weiß.png";
+import Appcontext from "../../AppContext";
 import { Link } from "react-router-dom";
 import LoginForm from "./LoginForm";
 import Logout from "./Logout";
@@ -11,6 +12,7 @@ const Menu = () => {
 	const [error, setError] = useState(null);
 	const [userPhoto, setUserPhoto] = useState(null);
 	const [showLogin, setShowLogin] = useState(false);
+	const { setSelected } = useContext(Appcontext);
 
 	useEffect(() => {
 		firebase
@@ -36,6 +38,7 @@ const Menu = () => {
 	const handleLogOut = async () => {
 		try {
 			await firebase.auth().signOut();
+			setSelected(null);
 		} catch (e) {
 			setError(e.message);
 		}
@@ -48,7 +51,7 @@ const Menu = () => {
 	return (
 		<nav className="relative px-8 h-32 w-full flex flex-row justify-between items-center text-center bg-teal-900 shadow-xl">
 			<div className="flex flex-row items-center">
-				<Link to="/">
+				<Link to="/" onClick={() => setSelected(null)}>
 					<div className="flex items-center flex-shrink-0 text-white mr-6">
 						<svg
 							className="fill-current h-8 w-8 mr-2"
