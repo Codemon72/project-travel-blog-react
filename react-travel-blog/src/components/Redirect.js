@@ -27,7 +27,7 @@ const Redirect = () => {
 					alt=""
 				/>
 				<div className="inline font-bold text-2xl amatic text-white ">
-					Travel back home ...
+					Travel back home or login ...
 				</div>
 			</Link>
 		</div>

@@ -112,10 +112,7 @@ const Menu = () => {
 								</div>
 							</Link>
 						</div>
-						<Logout
-							logOut={handleLogOut}
-							disableLoginWindow={toggleLoginForm}
-						/>
+						<Logout logOut={handleLogOut} setShowLogin={setShowLogin} />
 					</div>
 				)}
 			</div>

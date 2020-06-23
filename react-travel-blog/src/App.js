@@ -9,7 +9,6 @@ import NewPostForm from "./components/NewPostForm";
 import Details from "./components/Details";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import AppContext from "./AppContext";
 
@@ -17,6 +16,7 @@ function App() {
 	const [places, setPlaces] = useState([]);
 	const [selected, setSelected] = useState(null);
 	const keyConfig = { key: "" };
+	require("dotenv").config();
 
 	const getUrlObject = (fileName) => {
 		const imageRef = firebase.storage().ref().child(`blogPics/${fileName}`);
