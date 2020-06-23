@@ -49,12 +49,12 @@ const Menu = () => {
 	};
 
 	return (
-		<nav className="relative px-8 h-32 w-full flex flex-row justify-between items-center text-center bg-teal-900 shadow-xl">
+		<nav className="relative h-32 bg-teal-900 header__nav-container">
 			<div className="flex flex-row items-center">
 				<Link to="/" onClick={() => setSelected(null)}>
-					<div className="flex items-center flex-shrink-0 text-white mr-6">
+					<div className="flex items-center flex-shrink-0 text-white header__logo_title">
 						<svg
-							className="fill-current h-8 w-8 mr-2"
+							className="fill-current h-8 w-8 mr-2 "
 							width="54"
 							height="54"
 							viewBox="0 0 54 54"
@@ -62,12 +62,12 @@ const Menu = () => {
 						>
 							<path d="M43.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z" />
 						</svg>
-						<span className="font-semibold text-3xl tracking-tight">
+						<span className="font-semibold text-3xl tracking-tight header__title">
 							Travel Time
 						</span>
 					</div>
 				</Link>
-				<Link to="/contact" className="hidden md:block">
+				<Link to="/contact" className="header__contact">
 					<img src={contactLogo} alt="" className="w-16 h-16" title="Contact" />
 				</Link>
 			</div>
@@ -83,23 +83,23 @@ const Menu = () => {
 				)}
 
 				{user && (
-					<div className="flex items-center">
+					<div className="flex items-center header_right">
 						<div className="flex items-center">
 							<img
-								className="w-12 h-12 md:w-14 md:h-14 border border-teal-900 border-4 rounded-full"
+								className="w-12 h-12 mx-4 md:w-14 md:h-14 border border-teal-900 border-4 rounded-full header__avatar"
 								src={userPhoto ? userPhoto : ""}
 								alt="Avatar of the current user"
 							/>
 							<div
 								id="current-user"
-								className="text-sm px-4 lg:mr-2 py-2 leading-none text-white font-bold text-2xl"
+								className="text-sm px-4 lg:mr-2 py-2 leading-none text-white font-bold text-2xl header__user"
 							>
 								Hi, {user.displayName ? user.displayName : "Reisender"}
 							</div>
 
 							<Link
 								to="/new"
-								className="text-sm cursor-pointer px-2 mr-2 py-2 border rounded text-white border-white hover:border-transparent hover:text-teal-600 hover:bg-white"
+								className="text-sm cursor-pointer px-2 mr-2 my-2 py-2 border rounded text-white border-white hover:border-transparent hover:text-teal-600 hover:bg-white"
 							>
 								<img
 									className="w-4 h-4 mx-2 inline"

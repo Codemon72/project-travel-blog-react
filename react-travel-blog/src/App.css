@@ -47,10 +47,58 @@ h2 {
   font-family: "Amatic SC", cursive;
 }
 
-/* Header Text */
+/* Header */
+.header__nav-container {
+  display: flex;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  text-align: center;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+.header_right {
+  display: flex;
+  flex-direction: column;
+}
+@media only screen and (min-width: 430px) {
+  .header__nav-container {
+    align-items: center;
+    padding: 0 2rem;
+  }
+  .header_right {
+    flex-direction: row;
+  }
+}
 #header-text {
   font-family: "Amatic SC", cursive;
   font-weight: 400;
+}
+.header__avatar,
+.header__title,
+.header__user {
+  display: none;
+}
+.header__logo_title {
+  margin-right: .5rem;
+}
+@media only screen and (min-width: 515px) {
+  .header__avatar {
+    display: block;
+  }
+}
+@media only screen and (min-width: 658px) {
+  .header__logo_title {
+    margin-right: 1.5rem;
+  }
+  .header__title {
+    display: block;
+  }
+}
+@media only screen and (min-width: 880px) {
+  .header__user {
+    display: block;
+  }
 }
 
 /* Login Form */
