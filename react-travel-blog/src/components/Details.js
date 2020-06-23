@@ -5,7 +5,7 @@ import Marker from "./Main/Marker";
 import { useParams, Link } from "react-router-dom";
 import christoph from "../assets/img/Christoph-avatar.png";
 import clemens from "../assets/img/Clemens-avatar.JPG";
-import anonymous from "../assets/img/anonymous-avatar.png";
+import anonymous from "../assets/img/guest.png";
 import goBackbutton from "../assets/img/linker-pfeil_weiß.png";
 
 const Details = () => {
@@ -53,9 +53,7 @@ const Details = () => {
 					<div className="detail__content">
 						<img className="w-full" src={imageUrl} alt="" />
 						<div className="px-6 py-4">
-							<div className="amatic detail_title">
-								{detailEntry.title}
-							</div>
+							<div className="amatic detail_title">{detailEntry.title}</div>
 							<p className=" block text-gray-700 text-base">
 								{detailEntry.text}
 							</p>

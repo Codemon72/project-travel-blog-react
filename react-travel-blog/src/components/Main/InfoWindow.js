@@ -3,7 +3,7 @@ import AppContext from "../../AppContext";
 import { Link } from "react-router-dom";
 import christoph from "../../assets/img/Christoph-avatar.png";
 import clemens from "../../assets/img/Clemens-avatar.JPG";
-import anonymous from "../../assets/img/anonymous-avatar.png";
+import anonymous from "../../assets/img/guest.png";
 
 const InfoWindow = ({ place, closeInfo }) => {
 	const { beautifyDate } = useContext(AppContext);
