@@ -186,17 +186,17 @@ h2 {
   display: flex;
   flex-direction: column;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  padding: 1rem 1.5rem 1.5rem 1.5rem;
+  padding: 0 1.5rem 1.5rem 1.5rem;
   justify-content: center;
 }
 @media only screen and (min-width: 1024px) {
   .detail__container {
     flex-direction: row;
-    padding: 1.5rem 2.5rem 2.5rem 2.5rem;
+    padding: 0 2.5rem 2.5rem 2.5rem;
   }
 }
 .detail__content {
-  border: 4px #fff;
+  border: 4px #fff solid;
   border-radius: 4px 4px 0 0;
   overflow: hidden;
   background-color: #fff;
@@ -207,15 +207,20 @@ h2 {
     border-radius: 4px 0 0 4px;
   }
 }
+.detail_image {
+  width: 100%;
+}
 .detail_map {
   border-radius: 0 0 4px 4px;
   width: 100%;
   border: 4px #fff solid;
+  height: 70vh
 }
 @media only screen and (min-width: 1024px) {
   .detail_map {
     border-radius: 0 4px 4px 0;
     width: 50%;
+    height: auto;
   }
 }
 .detail_title {
