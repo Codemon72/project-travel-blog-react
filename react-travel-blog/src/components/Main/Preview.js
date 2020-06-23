@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import AppContext from "../../AppContext";
 import christoph from "../../assets/img/Christoph-avatar.png";
 import clemens from "../../assets/img/Clemens-avatar.JPG";
-import anonymous from "../../assets/img/anonymous-avatar.png";
+import anonymous from "../../assets/img/guest.png";
 import { Link } from "react-router-dom";
 
 const Preview = ({ place, selected, key }) => {
