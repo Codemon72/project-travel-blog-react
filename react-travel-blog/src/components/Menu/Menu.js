@@ -20,9 +20,7 @@ const Menu = () => {
 				firebase.auth().onAuthStateChanged((userAuth) => {
 					setError(null);
 					setUser(userAuth);
-					{
-						userAuth ? setUserPhoto(userAuth.photoURL) : setUserPhoto(null);
-					}
+					userAuth ? setUserPhoto(userAuth.photoURL) : setUserPhoto(null);
 				});
 			});
 	}, []);

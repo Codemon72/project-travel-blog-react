@@ -59,7 +59,7 @@ const NewPostForm = () => {
 	};
 
 	const changeLat = (event) => {
-		const value = event.currentTarget.value;
+		const value = parseFloat(event.currentTarget.value);
 		setNewBlogPost({
 			...newBlogPost,
 			geo_data: { ...newBlogPost.geo_data, lat: value },
@@ -67,7 +67,7 @@ const NewPostForm = () => {
 	};
 
 	const changeLng = (event) => {
-		const value = event.currentTarget.value;
+		const value = parseFloat(event.currentTarget.value);
 		setNewBlogPost({
 			...newBlogPost,
 			geo_data: { ...newBlogPost.geo_data, lng: value },
@@ -285,6 +285,7 @@ const NewPostForm = () => {
 							<img
 								className="w-full"
 								src="https://via.placeholder.com/800x600?text=Sample+picture"
+								alt=""
 							/>
 							<div className="px-6 py-4">
 								<div className="amatic font-bold text-4xl mb-2">
@@ -300,7 +301,7 @@ const NewPostForm = () => {
 								<img
 									className="w-10 h-10 rounded-full mr-4"
 									src={sampleUser}
-									alt="Profil picture"
+									alt=""
 								/>
 								<div className="text-sm">
 									<p className="text-gray-900 leading-none">
