@@ -66,12 +66,19 @@ h2 {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
   display: block;
 }
+.final {
+  margin: 0 .5rem;
+  max-width: 6rem;
+}
 .side_1,
 .side_2 {
   display: none;
 }
 @media only screen and (min-width: 305px) {
   .congrats {
+    display: none;
+  }
+  .final {
     display: none;
   }
   .side_1 {

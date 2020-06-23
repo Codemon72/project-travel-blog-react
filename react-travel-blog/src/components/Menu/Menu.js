@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import contactLogo from "../../assets/img/contact-bubble.png";
 import addImage from "../../assets/img/hinzufuegen_weiß.png";
+import final from "../../assets/img/final.svg";
 import Appcontext from "../../AppContext";
 import { Link } from "react-router-dom";
 import LoginForm from "./LoginForm";
@@ -119,7 +120,14 @@ const Menu = () => {
 					</div>
 				)}
 			</div>
-			<div className="congrats">Congratulations! You've reached the end of our responsiveness!</div>
+			<div className="congrats">Congratulations! 
+				You've reached the end of our responsiveness!
+			</div>
+			<img
+					className="final"
+					src={final}
+					alt="end of responsiveness"
+				/>
 
 			{!user && showLogin && (
 				<LoginForm logIn={handleLogIn} errorMessage={error} />
