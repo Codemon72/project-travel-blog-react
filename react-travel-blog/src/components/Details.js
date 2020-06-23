@@ -39,7 +39,7 @@ const Details = () => {
 				onClick={() => setSelected(null)}
 			>
 				<img
-					className="w-8 h-8 mx-6 my-6 lg:my-12 inline"
+					className="w-8 h-8 mx-6 my-10 lg:my-12 inline"
 					src={goBackbutton}
 					alt=""
 				/>
@@ -51,7 +51,7 @@ const Details = () => {
 			{detailEntry && (
 				<div className="detail__container">
 					<div className="detail__content">
-						<img className="w-full" src={imageUrl} alt="" />
+						<img className="detail_image" src={imageUrl} alt="" />
 						<div className="px-6 py-4">
 							<div className="amatic detail_title">
 								{detailEntry.title}
@@ -60,7 +60,7 @@ const Details = () => {
 								{detailEntry.text}
 							</p>
 						</div>
-						<div className="px-6 py-4 flex items-center">
+						<div className="px-6 pt-4 pb-6 flex items-center">
 							<img
 								className="w-10 h-10 rounded-full mr-4"
 								src={
@@ -83,9 +83,7 @@ const Details = () => {
 							</div>
 						</div>
 					</div>
-					<div className="detail_map" 
-					// style={{ height: "auto" }}
-					>
+					<div className="detail_map">
 						<GoogleMapReact
 							distanceToMouse={() => {}}
 							bootstrapURLKeys={keyConfig}
