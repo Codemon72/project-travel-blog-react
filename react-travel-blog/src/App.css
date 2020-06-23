@@ -74,6 +74,10 @@ h2 {
 .side_2 {
   display: none;
 }
+.log-out {
+  align-self: stretch;
+  margin-right: .5rem;
+}
 @media only screen and (min-width: 305px) {
   .congrats {
     display: none;
@@ -97,6 +101,10 @@ h2 {
   }
   .header_right {
     flex-direction: row;
+  }
+  .log-out {
+    align-self: auto;
+    margin-right: unset;
   }
 }
 #header-text {

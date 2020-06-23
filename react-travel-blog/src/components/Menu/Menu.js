@@ -126,7 +126,7 @@ const Menu = () => {
 			<img
 					className="final"
 					src={final}
-					alt="end of responsiveness"
+					alt=""
 				/>
 
 			{!user && showLogin && (
