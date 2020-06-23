@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import AppContext from "../../AppContext";
 import christoph from "../../assets/img/Christoph-avatar.png";
 import clemens from "../../assets/img/Clemens-avatar.JPG";
@@ -9,9 +9,9 @@ const Preview = ({ place, selected, key }) => {
 	const [imageUrl, setImageUrl] = useState(null);
 	const { getUrlObject, beautifyDate } = useContext(AppContext);
 
-	// getUrlObject(place.image.src).then((url) => {
-	// 	setImageUrl(url);
-	// });
+	getUrlObject(place.image.src).then((url) => {
+		setImageUrl(url);
+	});
 
 	return (
 		<Link
