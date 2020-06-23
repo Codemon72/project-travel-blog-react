@@ -51,7 +51,7 @@ const Details = () => {
 					<div className="detail__content">
 						<img className="w-full" src={imageUrl} alt="" />
 						<div className="px-6 py-4">
-							<div className="amatic font-bold text-4xl mb-2">
+							<div className="amatic detail_title">
 								{detailEntry.title}
 							</div>
 							<p className=" block text-gray-700 text-base">
@@ -75,10 +75,7 @@ const Details = () => {
 							</div>
 						</div>
 					</div>
-					<div
-						className="w-full lg:w-1/2 border-4 border-white rounded shadow-xl detail-map"
-						style={{ height: "70vh" }}
-					>
+					<div className="detail_map" style={{ height: "70vh" }}>
 						<GoogleMapReact
 							distanceToMouse={() => {}}
 							bootstrapURLKeys={keyConfig}
