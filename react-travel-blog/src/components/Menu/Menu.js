@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import contactLogo from "../../assets/img/contact-bubble.png";
 import addImage from "../../assets/img/hinzufuegen_weiß.png";
+import final from "../../assets/img/final.svg";
 import Appcontext from "../../AppContext";
 import { Link } from "react-router-dom";
 import LoginForm from "./LoginForm";
@@ -50,7 +51,7 @@ const Menu = () => {
 
 	return (
 		<nav className="relative h-32 bg-teal-900 header__nav-container">
-			<div className="flex flex-row items-center">
+			<div className="side_1">
 				<Link to="/" onClick={() => setSelected(null)}>
 					<div className="flex items-center flex-shrink-0 text-white header__logo_title">
 						<svg
@@ -71,7 +72,7 @@ const Menu = () => {
 					<img src={contactLogo} alt="" className="w-16 h-16" title="Contact" />
 				</Link>
 			</div>
-			<div>
+			<div className="side_2">
 				{!user && (
 					<button
 						onClick={toggleLoginForm}
@@ -116,6 +117,14 @@ const Menu = () => {
 					</div>
 				)}
 			</div>
+			<div className="congrats">Congratulations! 
+				You've reached the end of our responsiveness!
+			</div>
+			<img
+					className="final"
+					src={final}
+					alt=""
+				/>
 
 			{!user && showLogin && (
 				<LoginForm logIn={handleLogIn} errorMessage={error} />

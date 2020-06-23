@@ -61,6 +61,39 @@ h2 {
   display: flex;
   flex-direction: column;
 }
+.congrats {
+  color: #fff;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  display: block;
+}
+.final {
+  margin: 0 .5rem;
+  max-width: 6rem;
+}
+.side_1,
+.side_2 {
+  display: none;
+}
+.log-out {
+  align-self: stretch;
+  margin-right: .5rem;
+}
+@media only screen and (min-width: 305px) {
+  .congrats {
+    display: none;
+  }
+  .final {
+    display: none;
+  }
+  .side_1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .side_2 {
+    display: block;
+  }
+}
 @media only screen and (min-width: 430px) {
   .header__nav-container {
     align-items: center;
@@ -68,6 +101,10 @@ h2 {
   }
   .header_right {
     flex-direction: row;
+  }
+  .log-out {
+    align-self: auto;
+    margin-right: unset;
   }
 }
 #header-text {
@@ -87,7 +124,7 @@ h2 {
     display: block;
   }
 }
-@media only screen and (min-width: 658px) {
+@media only screen and (min-width: 670px) {
   .header__logo_title {
     margin-right: 1.5rem;
   }
