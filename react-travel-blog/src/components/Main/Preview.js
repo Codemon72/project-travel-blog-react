@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import AppContext from "../../AppContext";
 import christoph from "../../assets/img/Christoph-avatar.png";
 import clemens from "../../assets/img/Clemens-avatar.JPG";

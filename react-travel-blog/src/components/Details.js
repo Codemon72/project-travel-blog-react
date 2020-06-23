@@ -8,10 +8,15 @@ import clemens from "../assets/img/Clemens-avatar.JPG";
 import anonymous from "../assets/img/anonymous-avatar.png";
 import goBackbutton from "../assets/img/linker-pfeil_weiß.png";
 
-
 const Details = () => {
 	const [imageUrl, setImageUrl] = useState(null);
-	const { getUrlObject, places, beautifyDate, keyConfig, setSelected } = useContext(AppContext);
+	const {
+		getUrlObject,
+		places,
+		beautifyDate,
+		keyConfig,
+		setSelected,
+	} = useContext(AppContext);
 	const [detailEntry, setDetailEntry] = useState("");
 	const { id } = useParams();
 
@@ -28,11 +33,16 @@ const Details = () => {
 
 	return (
 		<div>
-			<Link 
-				to="/" 
+			<Link
+				to="/"
 				className="flex justify-start lg:justify-center items-center"
-				onClick={() => setSelected(null)}>
-				<img className="w-8 h-8 mx-6 my-6 lg:my-12 inline" src={goBackbutton} />
+				onClick={() => setSelected(null)}
+			>
+				<img
+					className="w-8 h-8 mx-6 my-6 lg:my-12 inline"
+					src={goBackbutton}
+					alt=""
+				/>
 				<div className="inline font-bold text-2xl amatic text-white ">
 					Travel back home ...
 				</div>
@@ -41,7 +51,7 @@ const Details = () => {
 			{detailEntry && (
 				<div className="detail__container">
 					<div className="detail__content">
-						<img className="w-full" src={imageUrl} />
+						<img className="w-full" src={imageUrl} alt="" />
 						<div className="px-6 py-4">
 							<div className="amatic detail_title">
 								{detailEntry.title}
@@ -60,24 +70,28 @@ const Details = () => {
 										? clemens
 										: anonymous
 								}
-								alt="Profil picture"
+								alt="profile picture"
 							/>
 							<div className="text-sm">
 								<p className="text-gray-900 leading-none">
 									{detailEntry.author}
 								</p>
 								<p className="text-gray-600">
-									{beautifyDate(detailEntry.last_visited)} in {detailEntry.location.city},{" "}
-									{detailEntry.location.country}
+									{beautifyDate(detailEntry.last_visited)} in{" "}
+									{detailEntry.location.city}, {detailEntry.location.country}
 								</p>
 							</div>
 						</div>
 					</div>
 					<div className="detail_map" style={{ height: "70vh" }}>
 						<GoogleMapReact
-							distanceToMouse={()=>{}}
+							distanceToMouse={() => {}}
 							bootstrapURLKeys={keyConfig}
-							center={detailEntry.geo_data ? detailEntry.geo_data : {lat: 37.794594, lng: -25.506134}}
+							center={
+								detailEntry.geo_data
+									? detailEntry.geo_data
+									: { lat: 37.794594, lng: -25.506134 }
+							}
 							zoom={8}
 						>
 							<Marker
