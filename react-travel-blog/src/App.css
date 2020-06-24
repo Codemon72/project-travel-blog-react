@@ -47,6 +47,9 @@ h2 {
   font-family: "Amatic SC", cursive;
 }
 
+Main {
+  min-height: calc(100vh - 128px - 132px);
+}
 /* Header */
 .header__nav-container {
   display: flex;
@@ -67,7 +70,7 @@ h2 {
   display: block;
 }
 .final {
-  margin: 0 .5rem;
+  margin: 0 0.5rem;
   max-width: 6rem;
 }
 .side_1,
@@ -76,7 +79,7 @@ h2 {
 }
 .log-out {
   align-self: stretch;
-  margin-right: .5rem;
+  margin-right: 0.5rem;
 }
 @media only screen and (min-width: 305px) {
   .congrats {
@@ -117,7 +120,7 @@ h2 {
   display: none;
 }
 .header__logo_title {
-  margin-right: .5rem;
+  margin-right: 0.5rem;
 }
 @media only screen and (min-width: 515px) {
   .header__avatar {
@@ -298,7 +301,7 @@ h2 {
   border-radius: 0 0 4px 4px;
   width: 100%;
   border: 4px #fff solid;
-  height: 70vh
+  height: 70vh;
 }
 @media only screen and (min-width: 1024px) {
   .detail_map {
@@ -310,17 +313,17 @@ h2 {
 .detail_title {
   font-size: 36px;
   line-height: 2.5rem;
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
   font-weight: 700;
 }
 
 /* Contact */
-.contact_flex-container{
+.contact_flex-container {
   display: flex;
   flex-direction: column-reverse;
 }
 @media only screen and (min-width: 640px) {
-  .contact_flex-container{
+  .contact_flex-container {
     flex-direction: row;
     justify-content: space-evenly;
   }
@@ -338,7 +341,7 @@ h2 {
   max-width: 500px;
 }
 
- /* New Post */
+/* New Post */
 .new-post-sample {
   display: none;
 }
@@ -347,4 +350,3 @@ h2 {
     display: block;
   }
 }
-
