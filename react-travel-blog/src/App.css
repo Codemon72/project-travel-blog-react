@@ -145,7 +145,6 @@ h2 {
   right: 0;
   z-index: 999;
 }
-
 #current-user {
   font-family: "Amatic SC", cursive;
 }
@@ -316,7 +315,6 @@ h2 {
 }
 
 /* Contact */
-
 .contact_flex-container{
   display: flex;
   flex-direction: column-reverse;
@@ -350,20 +348,3 @@ h2 {
   }
 }
 
-/* 'sm': '640px' */
-/* @media only screen and (min-width: 640px) {} */
-/* 'md': '768px' */
-/* @media only screen and (min-width: 768px) {} */
-/* 'lg': '1024px' */
-/* @media only screen and (min-width: 1024px) {} */
-/* 'xl': '1280px' */
-/* @media only screen and (min-width: 1280px) {} */
-
-/* * { outline: 2px dotted red }
-* * { outline: 2px dotted green }
-* * * { outline: 2px dotted orange }
-* * * * { outline: 2px dotted blue }
-* * * * * { outline: 1px solid red }
-* * * * * * { outline: 1px solid green }
-* * * * * * * { outline: 1px solid orange }
-* * * * * * * * { outline: 1px solid blue } */
