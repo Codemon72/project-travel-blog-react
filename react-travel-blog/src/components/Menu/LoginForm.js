@@ -22,7 +22,7 @@ const LoginForm = ({ logIn, errorMessage }) => {
 	return (
 		<div
 			id="login-form"
-			className="bg-white shadow-md rounded px-8 pt-4 pb-8 text-left w-1/3"
+			className="bg-white shadow-md rounded px-8 pt-4 pb-8 text-left w-full max-w-xs"
 		>
 			<h2 className="text-center text-2xl text-teal-800 font-bold pb-4">
 				Login
