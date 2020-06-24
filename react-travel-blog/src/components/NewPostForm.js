@@ -286,8 +286,7 @@ const NewPostForm = () => {
 								</div>
 							</form>
 						</div>
-						<div className="flex flex-col px-5">
-							<div>
+						<div className="px-5 new-post-sample">
 								<div className="text-center amatic text-3xl my-4 font-bold text-white">
 									Your sample post
 								</div>
@@ -299,7 +298,7 @@ const NewPostForm = () => {
 									/>
 									<div className="px-6 py-4">
 										<div className="amatic font-bold text-4xl mb-2">
-											{newBlogPost.title ? newBlogPost.title : "Dein Titel"}
+											{newBlogPost.title ? newBlogPost.title : "Your Title"}
 										</div>
 										<p className=" block text-gray-700 text-base">
 											{newBlogPost.text
@@ -324,16 +323,15 @@ const NewPostForm = () => {
 												in{" "}
 												{newBlogPost.location.city
 													? newBlogPost.location.city
-													: "Teststadt"}
+													: "City"}
 												,{" "}
 												{newBlogPost.location.country
 													? newBlogPost.location.country
-													: "Deinland"}
+													: "Country"}
 											</p>
 										</div>
 									</div>
 								</div>
-							</div>
 						</div>
 					</div>
 				</div>
