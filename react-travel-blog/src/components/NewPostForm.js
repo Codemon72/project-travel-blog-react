@@ -30,13 +30,15 @@ const NewPostForm = () => {
 
 	useEffect(() => {
 		firebase.auth().onAuthStateChanged((user) => {
-			setNewBlogPost({
-				...newBlogPost,
-				author: user.displayName,
-				author_image: user.photoURL,
-				date: new Date(),
-			});
-			setUser(user);
+			//check user to handle error when logout
+			user &&
+				setNewBlogPost({
+					...newBlogPost,
+					author: user.displayName,
+					author_image: user.photoURL,
+					date: new Date(),
+				});
+			user && setUser(user);
 		});
 	}, []);
 
