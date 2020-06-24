@@ -293,7 +293,7 @@ const NewPostForm = () => {
 								<div className="w-full relative container max-w-md rounded border-4 border-white overflow-hidden justify-center bg-white">
 									<img
 										className="w-full"
-										src="https://source.unsplash.com/640x480/?coral,space"
+										src="https://source.unsplash.com/collection/10858148"
 										alt=""
 									/>
 									<div className="px-6 py-4">
