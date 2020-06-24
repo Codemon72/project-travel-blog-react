@@ -286,25 +286,24 @@ const NewPostForm = () => {
 								</div>
 							</form>
 						</div>
-						<div className="flex flex-col px-5">
-							<div>
+						<div className="px-5 new-post-sample">
 								<div className="text-center amatic text-3xl my-4 font-bold text-white">
 									Your sample post
 								</div>
 								<div className="w-full relative container max-w-md rounded border-4 border-white overflow-hidden justify-center bg-white">
 									<img
 										className="w-full"
-										src="https://via.placeholder.com/800x600?text=Sample+picture"
+										src="https://source.unsplash.com/640x480/?coral,space"
 										alt=""
 									/>
 									<div className="px-6 py-4">
 										<div className="amatic font-bold text-4xl mb-2">
-											{newBlogPost.title ? newBlogPost.title : "Dein Titel"}
+											{newBlogPost.title ? newBlogPost.title : "Your Title"}
 										</div>
 										<p className=" block text-gray-700 text-base">
 											{newBlogPost.text
 												? newBlogPost.text
-												: "Hoodie tilde flexitarian wolf, glossier mixtape 90's schlitz prism letterpress cold-pressed church-key pop-up readymade swag. Vinyl lo-fi cold-pressed banjo swag."}
+												: "Do. Or do not. There is no try. Never tell me the odds! In my experience there is no such thing as luck. I find your lack of faith disturbing. It’s the ship that made the Kessel run in less than twelve parsecs. The Force will be with you. Always."}
 										</p>
 									</div>
 									<div className="px-6 py-4 flex items-center">
@@ -324,16 +323,15 @@ const NewPostForm = () => {
 												in{" "}
 												{newBlogPost.location.city
 													? newBlogPost.location.city
-													: "Teststadt"}
+													: "Mos Eisley"}
 												,{" "}
 												{newBlogPost.location.country
 													? newBlogPost.location.country
-													: "Deinland"}
+													: "Tattooine"}
 											</p>
 										</div>
 									</div>
 								</div>
-							</div>
 						</div>
 					</div>
 				</div>

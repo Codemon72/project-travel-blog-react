@@ -340,6 +340,15 @@ h2 {
   max-width: 500px;
 }
 
+ /* New Post */
+.new-post-sample {
+  display: none;
+}
+@media only screen and (min-width: 800px) {
+  .new-post-sample {
+    display: block;
+  }
+}
 
 /* 'sm': '640px' */
 /* @media only screen and (min-width: 640px) {} */
