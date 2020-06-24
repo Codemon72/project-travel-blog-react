@@ -92,9 +92,9 @@ A blog post should contain:
 
 ### now Bonus: 6. New Blog Post
 
-- [ ] With the path `/new` a blog post form is shown, where a new blog post can be added.
-- [ ] On submit, the new blog post is sent and stored to Firestore.
-- [ ] The form is cleared after adding a new blog post and the user gets directed to the Dashboard, again.  
+- [x] With the path `/new` a blog post form is shown, where a new blog post can be added.
+- [x] On submit, the new blog post is sent and stored to Firestore.
+- [x] The form is cleared after adding a new blog post and the user gets directed to the Dashboard, again.  
 
   You can use the history hook provided by the React Router: `useHistory()`.
 
@@ -122,7 +122,7 @@ A blog post should contain:
 
 - [ ] For the images: Save the image in your project manually in the public folder and use it with relative path as string.  
   For instance: The image `barcelona.jpg` saved under `public/images` can be linked in the templates with `"/images/barcelona.jpg"`.
-- [ ] Only signed in user can add new blog posts.
+- [x] Only signed in user can add new blog posts.
 
 #### now Bonus 7: Get Blog Posts from Firestore
 
@@ -150,10 +150,10 @@ You can choose any of these optional bonus tasks, in any order.
 ### Bonus 2: Firebase Storage for images
 
 - [x] Include the Storage API from Firebase.
-- [ ] Research how to upload and download pictures with Firebase Storage.
-- [ ] Upload your blog post's images to Storage.
+- [x] Research how to upload and download pictures with Firebase Storage.
+- [x] Upload your blog post's images to Storage.
 - [x] Load the images from Storage when displaying the blog posts.
-- [ ] In the form for creating a new blog post, add an option to upload an image for the blog post to Storage.
+- [x] In the form for creating a new blog post, add an option to upload an image for the blog post to Storage.
 
 ### Bonus 3: Edit Blog Posts
 
