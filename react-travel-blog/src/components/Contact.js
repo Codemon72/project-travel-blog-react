@@ -32,40 +32,38 @@ const Contact = () => {
 						follow.
 						<br />
 						<br />
-						<span className="font-semibold">Contact Details:</span> <br />
-						<div className="flex">
-							<div className="w-1/2 flex flex-col pr-8">
-								<div>
-									Clemens Bruesch <br />
-									Wetteringe 6, 21029 Hamburg <br />
-									clemens.bruesch@gmail.com <br />
-									0151 / 20294061 <br />
+						<div>
+							<div className="font-semibold mb-6">Contact Details:</div>
+							<div className="contact_flex-container">
+								<div className="contact_single flex flex-col">
+									<div>
+										Clemens Bruesch <br />
+										Wetteringe 6, 21029 Hamburg <br />
+										clemens.bruesch@gmail.com <br />
+										0151 / 20294061 <br />
+									</div>
+									<div className="my-8  w-full">
+										<img
+											className="border-4 rounded-lg"
+											src={contactPicture2}
+											alt="Clemens Bruesch"
+										/>
+									</div>
 								</div>
-
-								<div className="my-8  w-full">
-									<img
-										className="border-4 rounded-lg"
-										src={contactPicture2}
-										alt=""
-										width="500"
-									/>
-								</div>
-							</div>
-							<div className="w-1/2 flex-col pr-8">
-								<div>
-									Christoph Pöllmann <br />
-									Hohenesch 1, 22765 Hamburg <br />
-									christophpoellmann@web.de <br />
-									0152 / 55426340 <br />
-								</div>
-
-								<div className="my-8 w-full">
-									<img
-										className="border-4 rounded-lg"
-										src={contactPicture1}
-										alt=""
-										width="500"
-									/>
+								<div className="contact_single flex-col">
+									<div>
+										Christoph Pöllmann <br />
+										Hohenesch 1, 22765 Hamburg <br />
+										christophpoellmann@web.de <br />
+										0152 / 55426340 <br />
+									</div>
+									<div className="my-8 w-full">
+										<img
+											className="border-4 rounded-lg"
+											src={contactPicture1}
+											alt="Christoph Pöllmann"
+										/>
+									</div>
 								</div>
 							</div>
 						</div>
