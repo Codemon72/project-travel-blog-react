@@ -293,7 +293,7 @@ const NewPostForm = () => {
 								<div className="w-full relative container max-w-md rounded border-4 border-white overflow-hidden justify-center bg-white">
 									<img
 										className="w-full"
-										src="https://via.placeholder.com/800x600?text=Sample+picture"
+										src="https://source.unsplash.com/640x480/?coral,space"
 										alt=""
 									/>
 									<div className="px-6 py-4">
@@ -303,7 +303,7 @@ const NewPostForm = () => {
 										<p className=" block text-gray-700 text-base">
 											{newBlogPost.text
 												? newBlogPost.text
-												: "Hoodie tilde flexitarian wolf, glossier mixtape 90's schlitz prism letterpress cold-pressed church-key pop-up readymade swag. Vinyl lo-fi cold-pressed banjo swag."}
+												: "Do. Or do not. There is no try. Never tell me the odds! In my experience there is no such thing as luck. I find your lack of faith disturbing. It’s the ship that made the Kessel run in less than twelve parsecs. The Force will be with you. Always."}
 										</p>
 									</div>
 									<div className="px-6 py-4 flex items-center">
@@ -323,11 +323,11 @@ const NewPostForm = () => {
 												in{" "}
 												{newBlogPost.location.city
 													? newBlogPost.location.city
-													: "City"}
+													: "Mos Eisley"}
 												,{" "}
 												{newBlogPost.location.country
 													? newBlogPost.location.country
-													: "Country"}
+													: "Tattooine"}
 											</p>
 										</div>
 									</div>
