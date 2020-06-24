@@ -7,9 +7,11 @@ import christoph from "../assets/img/Christoph-avatar.png";
 import clemens from "../assets/img/Clemens-avatar.JPG";
 import anonymous from "../assets/img/guest.png";
 import goBackbutton from "../assets/img/linker-pfeil_weiß.png";
+import editIcon from "../assets/img/bleistift.png";
 
 const Details = () => {
 	const [imageUrl, setImageUrl] = useState(null);
+	const [edit, setEdit] = useState(false);
 	const {
 		getUrlObject,
 		places,
@@ -31,6 +33,28 @@ const Details = () => {
 		});
 	}
 
+	const toggleEdit = () => {
+		setEdit(!edit);
+	};
+
+	const reload = () => {
+		window.location.reload();
+	};
+
+	const handleSubmit = () => {
+		// under construction
+	};
+
+	const changeTitle = (event) => {
+		const value = event.currentTarget.value;
+		setDetailEntry({ ...detailEntry, title: value });
+	};
+
+	const changeText = (event) => {
+		const value = event.currentTarget.value;
+		setDetailEntry({ ...detailEntry, text: value });
+	};
+
 	return (
 		<div>
 			<div className="flex justify-start lg:justify-center items-center">
@@ -47,17 +71,44 @@ const Details = () => {
 					</div>
 				</Link>
 			</div>
-
 			{detailEntry && (
 				<div className="detail__container">
-					<div className="detail__content">
+					<div className="detail__content ">
 						<img className="detail_image" src={imageUrl} alt="" />
 						<div className="px-6 py-4">
-							<div className="amatic detail_title">{detailEntry.title}</div>
-							<p className=" block text-gray-700 text-base">
-								{detailEntry.text}
-							</p>
+							{edit ? (
+								<form onSubmit={handleSubmit}>
+									<input
+										className="border rounded amatic detail_title appearance-none block w-full focus:outline-none focus:bg-white"
+										id="title"
+										name="title"
+										type="text"
+										value={detailEntry.title}
+										onChange={changeTitle}
+										placeholder="Enter new blog title"
+										required
+									/>
+									<textarea
+										className="border rounded block text-gray-700 text-base appearance-none w-full bg-white focus:outline-none focus:bg-white"
+										name="entry"
+										id="entry"
+										cols="30"
+										rows="10"
+										value={detailEntry.text}
+										onChange={changeText}
+										required
+									></textarea>
+								</form>
+							) : (
+								<div>
+									<div className="amatic detail_title">{detailEntry.title}</div>
+									<p className="block text-gray-700 text-base">
+										{detailEntry.text}
+									</p>{" "}
+								</div>
+							)}
 						</div>
+
 						<div className="px-6 pt-4 pb-6 flex items-center">
 							<img
 								className="w-10 h-10 rounded-full mr-4"
@@ -80,6 +131,29 @@ const Details = () => {
 								</p>
 							</div>
 						</div>
+						{edit ? (
+							<div className="flex items-center justify-center pb-4 ">
+								<button className="bg-teal-800 shadow hover:bg-teal-700 text-white font-bold py-3 mr-3 w-32 rounded-full">
+									Update
+								</button>
+								<button
+									onClick={reload}
+									className="bg-red-600 shadow hover:bg-red-800 text-white font-bold py-3 ml-3 w-32 rounded-full"
+								>
+									Abbrechen
+								</button>
+							</div>
+						) : (
+							<div className="flex items-center justify-center pb-4 opacity-25 hover:opacity-100">
+								<button
+									onClick={toggleEdit}
+									className=" flex items-center bg-teal-800 shadow hover:bg-teal-600 text-white font-bold py-2 px-20 rounded-full"
+								>
+									Edit
+									<img src={editIcon} className="w-6 h-6 mx-4" />
+								</button>
+							</div>
+						)}
 					</div>
 					<div className="detail_map">
 						<GoogleMapReact
