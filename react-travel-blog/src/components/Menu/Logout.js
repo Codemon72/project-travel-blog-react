@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 
 const Logout = ({ logOut, setShowLogin }) => {
 	let history = useHistory();
-	function goHome() {
+	const goHome = () => {
 		history.push("/");
 	}
 

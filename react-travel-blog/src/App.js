@@ -12,7 +12,7 @@ import Footer from "./components/Footer";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import AppContext from "./AppContext";
 
-function App() {
+const App = () => {
 	const [places, setPlaces] = useState([]);
 	const [selected, setSelected] = useState(null);
 	const keyConfig = { key: "" };
