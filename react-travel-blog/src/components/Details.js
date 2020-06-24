@@ -33,20 +33,20 @@ const Details = () => {
 
 	return (
 		<div>
-			<Link
-				to="/"
-				className="flex justify-start lg:justify-center items-center"
-				onClick={() => setSelected(null)}
-			>
-				<img
-					className="w-8 h-8 mx-6 my-10 lg:my-12 inline"
-					src={goBackbutton}
-					alt=""
-				/>
-				<div className="inline font-bold text-2xl amatic text-white ">
-					Travel back home ...
-				</div>
-			</Link>
+			<div className="flex justify-start lg:justify-center items-center">
+				<Link to="/" onClick={() => setSelected(null)}>
+					<div className="flex justify-center items-center">
+						<img
+							className="w-8 h-8 mx-6 my-10 lg:my-12 inline"
+							src={goBackbutton}
+							alt=""
+						/>
+						<div className="inline font-bold text-2xl amatic text-white ">
+							Travel back home ...
+						</div>
+					</div>
+				</Link>
+			</div>
 
 			{detailEntry && (
 				<div className="detail__container">

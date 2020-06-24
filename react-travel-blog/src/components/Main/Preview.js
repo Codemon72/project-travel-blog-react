@@ -5,7 +5,7 @@ import clemens from "../../assets/img/Clemens-avatar.JPG";
 import anonymous from "../../assets/img/guest.png";
 import { Link } from "react-router-dom";
 
-const Preview = ({ place, selected, key }) => {
+const Preview = ({ place, selected }) => {
 	const [imageUrl, setImageUrl] = useState(null);
 	const { getUrlObject, beautifyDate } = useContext(AppContext);
 
