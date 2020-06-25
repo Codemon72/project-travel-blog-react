@@ -157,10 +157,10 @@ You can choose any of these optional bonus tasks, in any order.
 
 ### Bonus 3: Edit Blog Posts
 
-- [ ] At the `/post/:id` page, add an "edit" icon.
-- [ ] If the user clicks that, the blog post turns into editable mode and entries can be updated and saved.  
+- [x] At the `/post/:id` page, add an "edit" icon.
+- [x] If the user clicks that, the blog post turns into editable mode and entries can be updated and saved.  
 >  Take into consideration using the same form component, which you might have defined for creating new blog post.
-- [ ] The values of the form are pre-filled with the data from the blog post.
+- [x] The values of the form are pre-filled with the data from the blog post.
 - [ ] On form submit the blog post gets updated and sent to Firestore.
 
 ### Bonus 4: Focus of Blog Post in List on Marker Active
