@@ -213,3 +213,4 @@ You can choose any of these optional bonus tasks, in any order.
   - If you worked in a team, both your names
   - If you did any bonus tasks, list them
   - Send it to Mary (mary@hamburgcodingschool.com) and Teresa (teresa@hamburgcodingschool.com)
+
